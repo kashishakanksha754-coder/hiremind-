@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { Toaster } from "@/components/ui/toaster";
-import { SessionProviderWrapper } from "@/components/providers/SessionProviderWrapper";
+import SessionProviderWrapper from "@/components/providers/SessionProviderWrapper";
 
 export const metadata: Metadata = {
   title: {
