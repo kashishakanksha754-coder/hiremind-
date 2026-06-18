@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { getMockUser, clearMockUser } from "@/lib/mock-auth";
 import {
   LayoutDashboard,
   Briefcase,
@@ -148,8 +149,21 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [user, setUser] = useState<ReturnType<typeof getMockUser>>(null);
   const unread = NOTIFICATIONS.filter((n) => !n.read).length;
+
+  useEffect(() => {
+    const u = getMockUser();
+    if (!u || u.type !== "recruiter") {
+      router.push("/login");
+      return;
+    }
+    setUser(u);
+  }, [router]);
+
+  if (!user) return <div className="min-h-screen bg-bg-primary" />;
 
   return (
     <div className="min-h-screen bg-bg-primary text-text-primary">
@@ -250,7 +264,7 @@ export default function DashboardLayout({
                 <DropdownMenuTrigger asChild>
                   <button className="flex items-center gap-2 rounded-full p-0.5 transition-colors hover:bg-white/5">
                     <Avatar className="h-9 w-9">
-                      <AvatarFallback>KA</AvatarFallback>
+                      <AvatarFallback>{user.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase()}</AvatarFallback>
                     </Avatar>
                   </button>
                 </DropdownMenuTrigger>
@@ -258,10 +272,10 @@ export default function DashboardLayout({
                   <DropdownMenuLabel>
                     <div className="flex flex-col">
                       <span className="text-sm font-semibold text-text-primary">
-                        Kashish Arora
+                        {user.name}
                       </span>
                       <span className="text-xs font-normal text-text-secondary">
-                        kashish@loopmethods.com
+                        {user.email}
                       </span>
                     </div>
                   </DropdownMenuLabel>
@@ -277,11 +291,12 @@ export default function DashboardLayout({
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link href="/login" className="text-danger">
-                      <LogOut className="h-4 w-4" />
-                      Logout
-                    </Link>
+                  <DropdownMenuItem
+                    className="text-danger cursor-pointer"
+                    onClick={() => { clearMockUser(); router.push("/"); }}
+                  >
+                    <LogOut className="h-4 w-4" />
+                    Logout
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
