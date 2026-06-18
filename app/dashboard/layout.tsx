@@ -36,7 +36,7 @@ import { NOTIFICATIONS } from "./mock-data";
 const NAV_ITEMS = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { label: "Jobs", href: "/dashboard/jobs", icon: Briefcase },
-  { label: "Talent Pool", href: "/dashboard/talent", icon: Users },
+  { label: "Talent Pool", href: "/dashboard/talent-pool", icon: Users },
   { label: "Team", href: "/dashboard/team", icon: UserCog },
   { label: "Analytics", href: "/dashboard/analytics", icon: BarChart3 },
   { label: "Settings", href: "/dashboard/settings", icon: Settings },
