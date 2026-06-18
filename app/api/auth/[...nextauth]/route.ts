@@ -1,6 +1,9 @@
-import NextAuth from "next-auth";
-import { authOptions } from "@/lib/auth";
+// Auth is handled client-side via localStorage mock in this prototype.
+import { NextResponse } from "next/server";
 
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
+export async function GET() {
+  return NextResponse.json({ message: "Auth is mocked client-side." }, { status: 404 });
+}
+export async function POST() {
+  return NextResponse.json({ message: "Auth is mocked client-side." }, { status: 404 });
+}

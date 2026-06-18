@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { Toaster } from "@/components/ui/toaster";
-import SessionProviderWrapper from "@/components/providers/SessionProviderWrapper";
 
 export const metadata: Metadata = {
   title: {
@@ -23,9 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark">
       <body className="bg-bg-primary text-text-primary antialiased">
-        <SessionProviderWrapper>
-          <SiteChrome>{children}</SiteChrome>
-        </SessionProviderWrapper>
+        <SiteChrome>{children}</SiteChrome>
         <Toaster />
       </body>
     </html>
