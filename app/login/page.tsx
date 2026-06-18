@@ -3,7 +3,6 @@
 import { Suspense, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { signIn } from "next-auth/react";
 import { Brain, Eye, EyeOff, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,6 +11,12 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Demo accounts — any email/password works; these show in the hint
+const DEMO_ACCOUNTS = [
+  { email: "recruiter@demo.com", password: "demo1234", role: "recruiter", name: "Riya Kapoor" },
+  { email: "candidate@demo.com", password: "demo1234", role: "candidate", name: "Priya Sharma" },
+];
 
 function GoogleIcon() {
   return (
@@ -24,52 +29,62 @@ function GoogleIcon() {
   );
 }
 
+function mockLogin(email: string, password: string): { role: string; name: string } | null {
+  if (!email || !password) return null;
+  // Check demo accounts first
+  const demo = DEMO_ACCOUNTS.find(a => a.email === email && a.password === password);
+  if (demo) return { role: demo.role, name: demo.name };
+  // Check accounts created via signup (stored in localStorage)
+  try {
+    const accounts = JSON.parse(localStorage.getItem("hiremind_accounts") || "[]");
+    const match = accounts.find((a: any) => a.email === email && a.password === password);
+    if (match) return { role: match.role, name: match.name };
+  } catch {}
+  return null;
+}
+
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") ?? "/dashboard";
+  const callbackUrl = searchParams.get("callbackUrl") ?? "";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [remember, setRemember] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [googleLoading, setGoogleLoading] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email || !password) {
-      toast({ title: "Missing details", description: "Please enter both your email and password.", variant: "destructive" });
-      return;
-    }
     if (!EMAIL_RE.test(email)) {
       toast({ title: "Invalid email", description: "Please enter a valid email address.", variant: "destructive" });
       return;
     }
-    setLoading(true);
-    try {
-      const res = await signIn("credentials", { email, password, redirect: false });
-      if (res?.error) {
-        toast({ title: "Sign in failed", description: "Incorrect email or password.", variant: "destructive" });
-        return;
-      }
-      router.push(callbackUrl);
-      router.refresh();
-    } catch {
-      toast({ title: "Something went wrong", description: "We couldn't sign you in right now.", variant: "destructive" });
-    } finally {
-      setLoading(false);
+    if (!password) {
+      toast({ title: "Password required", description: "Please enter your password.", variant: "destructive" });
+      return;
     }
+
+    setLoading(true);
+    await new Promise(r => setTimeout(r, 800)); // simulate network
+
+    const user = mockLogin(email, password);
+    if (!user) {
+      setLoading(false);
+      toast({ title: "Invalid credentials", description: "Email or password is incorrect. Use the demo accounts below or sign up first.", variant: "destructive" });
+      return;
+    }
+
+    // Store session
+    localStorage.setItem("hiremind_user", JSON.stringify({ email, name: user.name, role: user.role }));
+
+    const destination = callbackUrl || (user.role === "recruiter" ? "/dashboard" : "/portal");
+    router.push(destination);
   }
 
-  async function handleGoogle() {
-    setGoogleLoading(true);
-    try {
-      await signIn("google", { callbackUrl });
-    } catch {
-      setGoogleLoading(false);
-      toast({ title: "Google sign in failed", description: "We couldn't connect to Google.", variant: "destructive" });
-    }
+  function handleDemo(role: "recruiter" | "candidate") {
+    const acc = DEMO_ACCOUNTS.find(a => a.role === role)!;
+    setEmail(acc.email);
+    setPassword(acc.password);
   }
 
   return (
@@ -88,12 +103,28 @@ function LoginForm() {
             <p className="mt-1 text-sm text-text-secondary">Sign in to continue screening smarter.</p>
           </div>
 
-          <Button type="button" variant="outline" className="w-full" onClick={handleGoogle} disabled={googleLoading || loading}>
-            {googleLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <GoogleIcon />}
-            Continue with Google
+          {/* Demo account quick-fill */}
+          <div className="mb-5 rounded-lg border border-accent-blue/20 bg-accent-blue/5 p-3">
+            <p className="mb-2 text-xs font-semibold text-accent-blue uppercase tracking-wide">Demo accounts</p>
+            <div className="flex gap-2">
+              <button onClick={() => handleDemo("recruiter")} className="flex-1 rounded-md bg-accent-blue/10 border border-accent-blue/30 px-3 py-1.5 text-xs font-medium text-accent-blue hover:bg-accent-blue/20 transition-colors">
+                Recruiter demo
+              </button>
+              <button onClick={() => handleDemo("candidate")} className="flex-1 rounded-md bg-accent-violet/10 border border-accent-violet/30 px-3 py-1.5 text-xs font-medium text-accent-violet hover:bg-accent-violet/20 transition-colors">
+                Candidate demo
+              </button>
+            </div>
+          </div>
+
+          <Button type="button" variant="outline" className="w-full" onClick={() => {
+            // Mock Google login as recruiter
+            localStorage.setItem("hiremind_user", JSON.stringify({ email: "google@demo.com", name: "Demo User", role: "recruiter" }));
+            router.push("/dashboard");
+          }}>
+            <GoogleIcon /> Continue with Google
           </Button>
 
-          <div className="my-6 flex items-center gap-3">
+          <div className="my-5 flex items-center gap-3">
             <span className="h-px flex-1 bg-border-subtle" />
             <span className="text-xs uppercase tracking-wider text-text-secondary">or</span>
             <span className="h-px flex-1 bg-border-subtle" />
@@ -107,21 +138,17 @@ function LoginForm() {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <Link href="/forgot-password" className="text-xs text-accent-blue hover:underline">Forgot password?</Link>
+                <Link href="#" className="text-xs text-accent-blue hover:underline">Forgot password?</Link>
               </div>
               <div className="relative">
                 <Input id="password" type={showPassword ? "text" : "password"} autoComplete="current-password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} className="pr-10" required />
-                <button type="button" onClick={() => setShowPassword((s) => !s)} className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-1 text-text-secondary hover:text-text-primary">
+                <button type="button" onClick={() => setShowPassword(s => !s)} className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-1 text-text-secondary hover:text-text-primary">
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
               </div>
             </div>
-            <label className="flex cursor-pointer items-center gap-2 text-sm text-text-secondary">
-              <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} className="h-4 w-4 rounded border-border-subtle bg-bg-secondary accent-accent-blue" />
-              Remember me
-            </label>
             <GradientButton type="submit" className="w-full" disabled={loading}>
-              {loading ? <><Loader2 className="h-4 w-4 animate-spin" /> Signing in...</> : "Sign in"}
+              {loading ? <><Loader2 className="h-4 w-4 animate-spin" /> Signing in…</> : "Sign in"}
             </GradientButton>
           </form>
         </div>
