@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { getMockUser, clearMockUser } from "@/lib/mock-auth";
 import {
   Home,
   Search,
@@ -27,7 +28,20 @@ const NAV = [
 
 export default function PortalLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [user, setUser] = useState<ReturnType<typeof getMockUser>>(null);
+
+  useEffect(() => {
+    const u = getMockUser();
+    if (!u || u.type !== "candidate") {
+      router.push("/login");
+      return;
+    }
+    setUser(u);
+  }, [router]);
+
+  if (!user) return <div className="min-h-screen bg-bg-primary" />;
 
   const isActive = (href: string) =>
     href === "/portal" ? pathname === "/portal" : pathname.startsWith(href);
@@ -72,13 +86,13 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
         <NavLinks />
         <div className="mt-auto">
           <Separator className="my-4" />
-          <Link
-            href="/login"
-            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-text-secondary transition-colors hover:bg-bg-secondary hover:text-danger"
+          <button
+            onClick={() => { clearMockUser(); router.push("/"); }}
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-text-secondary transition-colors hover:bg-bg-secondary hover:text-danger"
           >
             <LogOut className="h-4 w-4" />
             Sign out
-          </Link>
+          </button>
         </div>
       </aside>
 
@@ -125,7 +139,7 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
               <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-accent-blue ring-2 ring-bg-primary" />
             </Button>
             <Avatar className="h-9 w-9">
-              <AvatarFallback>RS</AvatarFallback>
+              <AvatarFallback>{user.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase()}</AvatarFallback>
             </Avatar>
           </div>
         </header>
