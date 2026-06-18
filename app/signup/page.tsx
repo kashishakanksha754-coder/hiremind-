@@ -12,6 +12,7 @@ import { GradientButton } from "@/components/ui/GradientButton";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
+import { setMockUser } from "@/lib/mock-auth";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 type Role = "recruiter" | "candidate";
@@ -69,9 +70,7 @@ export default function SignupPage() {
   }
 
   function handleGoogleSignup() {
-    // Mock Google signup as recruiter
-    const user = { email: "google@demo.com", name: "Demo User", role: "recruiter" };
-    localStorage.setItem("hiremind_user", JSON.stringify(user));
+    setMockUser({ type: "recruiter", name: "Demo User", email: "google@demo.com", company: "Demo Corp" });
     router.push("/dashboard");
   }
 
@@ -101,21 +100,12 @@ export default function SignupPage() {
     setLoading(true);
     await new Promise(r => setTimeout(r, 900)); // simulate network
 
-    // Save account to localStorage so login works
-    try {
-      const accounts = JSON.parse(localStorage.getItem("hiremind_accounts") || "[]");
-      const exists = accounts.find((a: any) => a.email === email);
-      if (exists) {
-        setLoading(false);
-        toast({ title: "Email already registered", description: "An account with this email already exists. Please sign in instead.", variant: "destructive" });
-        return;
-      }
-      accounts.push({ email, password, name: fullName.trim(), role, company: company.trim() });
-      localStorage.setItem("hiremind_accounts", JSON.stringify(accounts));
-    } catch {}
-
-    // Auto sign in
-    localStorage.setItem("hiremind_user", JSON.stringify({ email, name: fullName.trim(), role }));
+    setMockUser({
+      type: role!,
+      name: fullName.trim(),
+      email,
+      ...(role === "recruiter" ? { company: company.trim() } : {}),
+    });
     setLoading(false);
 
     toast({ title: "Account created!", description: `Welcome to HireMind, ${fullName.split(" ")[0]}!` });
