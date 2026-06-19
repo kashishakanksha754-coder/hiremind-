@@ -384,26 +384,48 @@ export default function HomePage() {
       {/* PRICING TEASER */}
       <section className="container py-20">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">Simple pricing that scales with you</h2>
+          <h2 className="font-display text-3xl font-bold md:text-4xl">Pay for the platform. <span className="gradient-text">Top up for AI voice.</span></h2>
+          <p className="mt-4 text-text-secondary">Simple base plans. Metered AI voice minutes. No surprises.</p>
         </ScrollReveal>
-        <div className="mx-auto mt-10 grid max-w-3xl gap-6 md:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-3xl gap-6 md:grid-cols-2 items-start">
+          {/* Pilot */}
           <Card className="p-8">
-            <h3 className="font-display text-lg font-semibold">Starter</h3>
-            <p className="mt-2 text-text-secondary">Everything you need to run your first AI-powered hire.</p>
-            <p className="mt-4 font-display text-3xl font-bold">Free <span className="text-base font-normal text-text-secondary">for 30 days</span></p>
-            <Link href="/pricing" className="mt-6 block">
-              <Button variant="outline" className="w-full border-border-subtle">View plans</Button>
+            <h3 className="font-display text-xl font-semibold">Pilot</h3>
+            <p className="mt-1 text-sm text-text-secondary">Run a real hiring loop with one team.</p>
+            <p className="mt-4 font-display text-3xl font-bold">$199<span className="text-base font-normal text-text-secondary">/mo</span></p>
+            <ul className="mt-4 space-y-2 text-sm text-text-secondary">
+              <li className="flex items-center gap-2"><Check className="h-4 w-4 shrink-0 text-success" /> 400 voice minutes</li>
+              <li className="flex items-center gap-2"><Check className="h-4 w-4 shrink-0 text-success" /> 3 seats</li>
+            </ul>
+            <Link href="/signup" className="mt-6 block">
+              <Button variant="outline" className="w-full">Start Pilot</Button>
             </Link>
           </Card>
-          <Card className="relative border-accent-blue/50 p-8 shadow-lg shadow-blue-500/10">
-            <span className="absolute -top-3 left-6 rounded-full bg-gradient-to-r from-accent-blue to-accent-violet px-3 py-1 text-xs font-semibold text-white">Most popular</span>
-            <h3 className="font-display text-lg font-semibold">Pro</h3>
-            <p className="mt-2 text-text-secondary">Unlimited jobs, AI voice interviews and full analytics.</p>
-            <p className="mt-4 font-display text-3xl font-bold">₹9,999<span className="text-base font-normal text-text-secondary">/month</span></p>
-            <Link href="/pricing" className="mt-6 block">
-              <GradientButton className="w-full">Choose Pro</GradientButton>
+          {/* Growth */}
+          <Card className="relative border-accent-blue/50 p-8 shadow-lg shadow-blue-500/10 bg-gradient-to-b from-accent-blue/10 to-transparent">
+            <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent-blue to-accent-violet px-4 py-1 text-xs font-semibold text-white whitespace-nowrap">
+              <Sparkles className="h-3 w-3" /> Most Popular
+            </span>
+            <h3 className="font-display text-xl font-semibold">Growth</h3>
+            <p className="mt-1 text-sm text-text-secondary">Scale screening across multiple roles.</p>
+            <p className="mt-4 font-display text-3xl font-bold">$599<span className="text-base font-normal text-text-secondary">/mo</span></p>
+            <ul className="mt-4 space-y-2 text-sm text-text-secondary">
+              <li className="flex items-center gap-2"><Check className="h-4 w-4 shrink-0 text-success" /> 1,500 voice minutes</li>
+              <li className="flex items-center gap-2"><Check className="h-4 w-4 shrink-0 text-success" /> 10 seats</li>
+            </ul>
+            <Link href="/signup" className="mt-6 block">
+              <GradientButton className="w-full">Start Growth</GradientButton>
             </Link>
           </Card>
+        </div>
+        <p className="mt-6 text-center text-sm text-text-secondary">
+          Need more?{" "}
+          <Link href="/pricing" className="text-accent-blue hover:underline">See Scale plan & voice credit top-ups →</Link>
+        </p>
+        <div className="mt-6 text-center">
+          <Link href="/pricing" className="text-sm font-medium text-accent-blue hover:underline">
+            See full pricing & estimator →
+          </Link>
         </div>
       </section>
 
