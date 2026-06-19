@@ -3,7 +3,7 @@ import {
   FileSearch,
   Mic,
   ClipboardCheck,
-  MessageSquareText,
+  Video,
   CheckCircle2,
   FileSignature,
   Clock,
@@ -72,12 +72,12 @@ const stages = [
     what: "Role-specific assessments auto-grade real ability and benchmark each candidate against your bar, not against a buzzword-stuffed resume.",
   },
   {
-    icon: MessageSquareText,
+    icon: Video,
     name: "Deep Interview",
     color: "text-amber-400",
     ring: "border-amber-400/40",
     glow: "bg-amber-400/10",
-    what: "Structured technical and behavioural rounds run on consistent rubrics, so every candidate is measured on the same evidence.",
+    what: "A live 45-minute video interview with Aria, your AI interviewer — real conversation, real follow-up questions based on what the candidate actually says, scored across up to 6 competencies your team defines for this role.",
   },
   {
     icon: CheckCircle2,
@@ -102,14 +102,14 @@ const features = [
     icon: Brain,
     eyebrow: "Intelligent screening",
     title: "Stop reading resumes. Start reading talent.",
-    desc: "HireMind reads every CV the way your best recruiter would, then explains why each candidate ranks where they do. Adjust the weighting for must-have skills, seniority or domain and the shortlist re-ranks instantly.",
+    desc: "Your screening agent reads every CV in under 60 seconds — the way your best recruiter would — then explains why each candidate ranks where they do. Adjust the weighting for must-have skills, seniority or domain and the shortlist re-ranks instantly. An agent can screen 500+ resumes in the time it takes to review 10 manually.",
     points: ["Explainable match scores", "Custom scoring weights per role", "Duplicate and fraud detection"],
   },
   {
     icon: Mic,
-    eyebrow: "AI voice interviews",
+    eyebrow: "AI voice screening",
     title: "Interview every applicant, not just the top 5%.",
-    desc: "Conversational AI conducts first-round interviews at any hour in any timezone. Candidates get a fast, human-feeling experience, and you get a structured transcript, summary and signal score for each one.",
+    desc: "Your screening agent conducts an 8-12 minute first-round phone call with every shortlisted candidate, at any hour in any timezone. Your team gets structured transcripts, summaries and signal scores — and only sees candidates worth a second look.",
     points: ["24/7 availability, zero scheduling", "Consistent questions for fairness", "Searchable transcripts and summaries"],
   },
   {
@@ -154,9 +154,10 @@ export default function ForRecruitersPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <p className="mt-6 max-w-2xl text-lg text-text-secondary md:text-xl">
-              HireMind runs your entire hiring pipeline end to end, from the first CV
-              to the signed offer. Give every applicant a fair, consistent process and
-              give your recruiters their week back.
+              HireMind's hiring agents handle the groundwork — reading resumes, running
+              first-round screens, scoring assessments — while your team stays in control
+              of every decision that actually matters. Agents do the legwork; your
+              recruiters make the call.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
@@ -209,7 +210,7 @@ export default function ForRecruitersPage() {
             </h2>
             <p className="mt-4 max-w-2xl text-text-secondary">
               Every candidate flows through the same structured journey. Here is what
-              HireMind does at each step.
+              your hiring agents handle at each step — and where your team makes the call.
             </p>
           </ScrollReveal>
           <div className="mt-12 space-y-5">

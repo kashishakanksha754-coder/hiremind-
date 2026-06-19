@@ -8,7 +8,7 @@ import {
   FileSearch,
   Mic,
   ClipboardCheck,
-  MessageSquareText,
+  Video,
   CheckCircle2,
   FileSignature,
   Sparkles,
@@ -37,7 +37,7 @@ const stages = [
   { icon: FileSearch, name: "CV Screening", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/10", desc: "AI parses, ranks and shortlists every CV in seconds." },
   { icon: Mic, name: "Voice Interview", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/10", desc: "Conversational AI screens for communication and intent." },
   { icon: ClipboardCheck, name: "Skill Assessment", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/10", desc: "Role-specific tests that auto-grade and benchmark talent." },
-  { icon: MessageSquareText, name: "Deep Interview", color: "text-amber-400", ring: "border-amber-400/40", glow: "bg-amber-400/10", desc: "Structured technical rounds with consistent rubrics." },
+  { icon: Video, name: "Deep Interview", color: "text-amber-400", ring: "border-amber-400/40", glow: "bg-amber-400/10", desc: "A live 45-minute video call with Aria — real conversation, scored across 6 competencies." },
   { icon: CheckCircle2, name: "Selection", color: "text-success", ring: "border-success/40", glow: "bg-success/10", desc: "Evidence-backed recommendations, zero gut-feel bias." },
   { icon: FileSignature, name: "Offer Letter", color: "text-pink-400", ring: "border-pink-400/40", glow: "bg-pink-400/10", desc: "Generate, approve and send offers in a single click." },
 ];
@@ -239,10 +239,10 @@ export default function HomePage() {
       <section className="container py-20">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold md:text-4xl">
-            One pipeline. <span className="gradient-text">Zero manual work.</span>
+            One pipeline. <span className="gradient-text">Agents do the legwork, you make the call.</span>
           </h2>
           <p className="mt-4 text-text-secondary">
-            Every stage is automated, scored and audit-ready — so nothing falls through the cracks.
+            Every stage is handled by your hiring agents, scored and audit-ready — so your team focuses on the decisions that actually matter.
           </p>
         </ScrollReveal>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -384,8 +384,8 @@ export default function HomePage() {
       {/* PRICING TEASER */}
       <section className="container py-20">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">Pay for the platform. <span className="gradient-text">Top up for AI voice.</span></h2>
-          <p className="mt-4 text-text-secondary">Simple base plans. Metered AI voice minutes. No surprises.</p>
+          <h2 className="font-display text-3xl font-bold md:text-4xl">One plan. <span className="gradient-text">Pay only for the AI time you use.</span></h2>
+          <p className="mt-4 text-text-secondary">Job posts, screening, and assessments are included for unlimited roles. Voice and video interviews are billed by the minute — the only real variable cost.</p>
         </ScrollReveal>
         <div className="mx-auto mt-10 grid max-w-3xl gap-6 md:grid-cols-2 items-start">
           {/* Pilot */}
