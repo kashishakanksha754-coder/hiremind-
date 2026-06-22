@@ -35,21 +35,21 @@ type Audience = "recruiter" | "candidate";
 const logos = ["Razorpay", "Swiggy", "Zepto", "PhonePe", "Groww", "CRED", "Meesho", "Nykaa"];
 
 const stages = [
-  { icon: FileSearch, name: "CV Screening", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/10", desc: "AI parses, ranks and shortlists every CV in seconds." },
-  { icon: Mic, name: "Voice Interview", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/10", desc: "Conversational AI screens for communication and intent." },
-  { icon: ClipboardCheck, name: "Skill Assessment", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/10", desc: "Role-specific tests that auto-grade and benchmark talent." },
-  { icon: Video, name: "Deep Interview", color: "text-amber-400", ring: "border-amber-400/40", glow: "bg-amber-400/10", desc: "A live 45-minute video call with Aria — real conversation, scored across 6 competencies." },
-  { icon: CheckCircle2, name: "Selection", color: "text-success", ring: "border-success/40", glow: "bg-success/10", desc: "Evidence-backed recommendations, zero gut-feel bias." },
-  { icon: FileSignature, name: "Offer Letter", color: "text-pink-400", ring: "border-pink-400/40", glow: "bg-pink-400/10", desc: "Generate, approve and send offers in a single click." },
+  { icon: FileSearch, name: "CV Screening", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/15", topBorder: "rgba(59,130,246,0.4)", desc: "AI parses, ranks and shortlists every CV in seconds." },
+  { icon: Mic, name: "Voice Interview", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/15", topBorder: "rgba(139,92,246,0.4)", desc: "Conversational AI screens for communication and intent." },
+  { icon: ClipboardCheck, name: "Skill Assessment", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/15", topBorder: "rgba(34,211,238,0.4)", desc: "Role-specific tests that auto-grade and benchmark talent." },
+  { icon: Video, name: "Deep Interview", color: "text-amber-400", ring: "border-amber-400/40", glow: "bg-amber-400/15", topBorder: "rgba(251,191,36,0.4)", desc: "A live 45-minute video call with Aria — real conversation, scored across 6 competencies." },
+  { icon: CheckCircle2, name: "Selection", color: "text-success", ring: "border-success/40", glow: "bg-success/15", topBorder: "rgba(16,185,129,0.4)", desc: "Evidence-backed recommendations, zero gut-feel bias." },
+  { icon: FileSignature, name: "Offer Letter", color: "text-pink-400", ring: "border-pink-400/40", glow: "bg-pink-400/15", topBorder: "rgba(244,114,182,0.4)", desc: "Generate, approve and send offers in a single click." },
 ];
 
 const candidateStages = [
-  { icon: Send, name: "Apply", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/10", desc: "Submit once. Your profile is auto-formatted and sent to the hiring team." },
-  { icon: FileSearch, name: "CV Scored", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/10", desc: "AI reads your CV in seconds and gives you an honest fit score for the role." },
-  { icon: Mic, name: "Voice Interview", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/10", desc: "A short AI voice call on your schedule — ask questions, share your story." },
-  { icon: Video, name: "Deep Interview", color: "text-amber-400", ring: "border-amber-400/40", glow: "bg-amber-400/10", desc: "A live video conversation with Aria, your AI interviewer. Real follow-up questions based on what you actually say — not a script." },
-  { icon: ClipboardCheck, name: "Assessment", color: "text-success", ring: "border-success/40", glow: "bg-success/10", desc: "A focused skills test built for the role. Complete it whenever suits you." },
-  { icon: CheckCircle2, name: "Decision", color: "text-pink-400", ring: "border-pink-400/40", glow: "bg-pink-400/10", desc: "You get a clear outcome — no ghosting, no waiting in silence." },
+  { icon: Send, name: "Apply", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/15", topBorder: "rgba(59,130,246,0.4)", desc: "Submit once. Your profile is auto-formatted and sent to the hiring team." },
+  { icon: FileSearch, name: "CV Scored", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/15", topBorder: "rgba(139,92,246,0.4)", desc: "AI reads your CV in seconds and gives you an honest fit score for the role." },
+  { icon: Mic, name: "Voice Interview", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/15", topBorder: "rgba(34,211,238,0.4)", desc: "A short AI voice call on your schedule — ask questions, share your story." },
+  { icon: Video, name: "Deep Interview", color: "text-amber-400", ring: "border-amber-400/40", glow: "bg-amber-400/15", topBorder: "rgba(251,191,36,0.4)", desc: "A live video conversation with Aria, your AI interviewer. Real follow-up questions based on what you actually say — not a script." },
+  { icon: ClipboardCheck, name: "Assessment", color: "text-success", ring: "border-success/40", glow: "bg-success/15", topBorder: "rgba(16,185,129,0.4)", desc: "A focused skills test built for the role. Complete it whenever suits you." },
+  { icon: CheckCircle2, name: "Decision", color: "text-pink-400", ring: "border-pink-400/40", glow: "bg-pink-400/15", topBorder: "rgba(244,114,182,0.4)", desc: "You get a clear outcome — no ghosting, no waiting in silence." },
 ];
 
 const testimonials = [
@@ -307,8 +307,8 @@ export default function HomePage() {
           >
             {(isRecruiter ? stages : candidateStages).map((st, i) => (
               <ScrollReveal key={st.name} delay={i * 0.05}>
-                <Card className={cn("h-full p-5 transition-all hover:shadow-lg hover:shadow-blue-500/10", "hover:border-accent-blue/50")}>
-                  <div className={cn("mb-3 inline-flex size-10 items-center justify-center rounded-xl border", st.ring, st.glow)}>
+                <Card className={cn("h-full p-5 hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10")} style={{ borderTop: `2px solid ${st.topBorder}` }}>
+                  <div className={cn("mb-3 inline-flex size-12 items-center justify-center rounded-xl", st.glow)}>
                     <st.icon className={cn("size-5", st.color)} />
                   </div>
                   <div className="flex items-center gap-2">
@@ -343,16 +343,20 @@ export default function HomePage() {
             <div className="mt-12 grid gap-5 md:grid-cols-3 md:grid-rows-2">
               {isRecruiter ? (
                 <>
-                  <Card className="md:col-span-2 md:row-span-1 p-8 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
-                    <Brain className="size-8 text-accent-blue" />
-                    <h3 className="mt-4 font-display text-2xl font-semibold">AI that understands context, not keywords</h3>
+                  <Card className="md:col-span-2 md:row-span-1 p-8 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.45)]">
+                    <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent-blue/15">
+                      <Brain className="size-6 text-accent-blue" />
+                    </div>
+                    <h3 className="font-display text-2xl font-semibold">AI that understands context, not keywords</h3>
                     <p className="mt-2 max-w-lg text-text-secondary">
                       Our models read intent, project depth and real impact — surfacing the candidates a keyword filter would miss entirely.
                     </p>
                   </Card>
-                  <Card className="md:row-span-2 p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10">
-                    <Mic className="size-8 text-accent-violet" />
-                    <h3 className="mt-4 font-display text-2xl font-semibold">Lifelike AI voice interviews</h3>
+                  <Card className="md:row-span-2 p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10 [border-top:2px_solid_rgba(139,92,246,0.45)]">
+                    <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent-violet/15">
+                      <Mic className="size-6 text-accent-violet" />
+                    </div>
+                    <h3 className="font-display text-2xl font-semibold">Lifelike AI voice interviews</h3>
                     <p className="mt-2 text-text-secondary">
                       Natural, adaptive conversations that screen thousands of candidates in parallel — available 24/7, in their own time zone.
                     </p>
@@ -365,29 +369,35 @@ export default function HomePage() {
                     </div>
                   </Card>
                   {[
-                    { icon: ShieldCheck, title: "Bias-aware scoring", desc: "Structured rubrics keep every decision fair and defensible." },
-                    { icon: BarChart3, title: "Hiring analytics", desc: "Funnel, source and time-to-hire insights in real time." },
-                    { icon: Zap, title: "One-click offers", desc: "Generate and send compliant offer letters instantly." },
+                    { icon: ShieldCheck, title: "Bias-aware scoring", desc: "Structured rubrics keep every decision fair and defensible.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
+                    { icon: BarChart3, title: "Hiring analytics", desc: "Funnel, source and time-to-hire insights in real time.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
+                    { icon: Zap, title: "One-click offers", desc: "Generate and send compliant offer letters instantly.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
                   ].map((f) => (
-                    <Card key={f.title} className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
-                      <f.icon className="size-6 text-accent-blue" />
-                      <h3 className="mt-3 font-display text-lg font-semibold">{f.title}</h3>
+                    <Card key={f.title} className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.35)]">
+                      <div className={cn("mb-3 inline-flex size-10 items-center justify-center rounded-lg", f.glow)}>
+                        <f.icon className={cn("size-5", f.color)} />
+                      </div>
+                      <h3 className="font-display text-lg font-semibold">{f.title}</h3>
                       <p className="mt-1 text-sm text-text-secondary">{f.desc}</p>
                     </Card>
                   ))}
                 </>
               ) : (
                 <>
-                  <Card className="md:col-span-2 md:row-span-1 p-8 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
-                    <Brain className="size-8 text-accent-blue" />
-                    <h3 className="mt-4 font-display text-2xl font-semibold">Your experience, actually understood</h3>
+                  <Card className="md:col-span-2 md:row-span-1 p-8 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.45)]">
+                    <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent-blue/15">
+                      <Brain className="size-6 text-accent-blue" />
+                    </div>
+                    <h3 className="font-display text-2xl font-semibold">Your experience, actually understood</h3>
                     <p className="mt-2 max-w-lg text-text-secondary">
                       Our models read what you've actually done — the depth, the impact, the context — instead of scanning for buzzwords a keyword filter would reward.
                     </p>
                   </Card>
-                  <Card className="md:row-span-2 p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10">
-                    <Mic className="size-8 text-accent-violet" />
-                    <h3 className="mt-4 font-display text-2xl font-semibold">A real conversation, not a quiz</h3>
+                  <Card className="md:row-span-2 p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10 [border-top:2px_solid_rgba(139,92,246,0.45)]">
+                    <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent-violet/15">
+                      <Mic className="size-6 text-accent-violet" />
+                    </div>
+                    <h3 className="font-display text-2xl font-semibold">A real conversation, not a quiz</h3>
                     <p className="mt-2 text-text-secondary">
                       Talk through your experience naturally, on your schedule, in your own time zone. No rigid script, no waiting on a recruiter's calendar.
                     </p>
@@ -400,13 +410,15 @@ export default function HomePage() {
                     </div>
                   </Card>
                   {[
-                    { icon: ShieldCheck, title: "Your results, explained", desc: "See exactly why you got the score you did — not just a rejection with no reason." },
-                    { icon: BarChart3, title: "Track everything in one place", desc: "Every application, every stage, one dashboard. No more guessing which company you're waiting on." },
-                    { icon: Zap, title: "Offers you can act on fast", desc: "When you're selected, get your offer letter instantly — no weeks of silence after the final interview." },
+                    { icon: ShieldCheck, title: "Your results, explained", desc: "See exactly why you got the score you did — not just a rejection with no reason.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
+                    { icon: BarChart3, title: "Track everything in one place", desc: "Every application, every stage, one dashboard. No more guessing which company you're waiting on.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
+                    { icon: Zap, title: "Offers you can act on fast", desc: "When you're selected, get your offer letter instantly — no weeks of silence after the final interview.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
                   ].map((f) => (
-                    <Card key={f.title} className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
-                      <f.icon className="size-6 text-accent-blue" />
-                      <h3 className="mt-3 font-display text-lg font-semibold">{f.title}</h3>
+                    <Card key={f.title} className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.35)]">
+                      <div className={cn("mb-3 inline-flex size-10 items-center justify-center rounded-lg", f.glow)}>
+                        <f.icon className={cn("size-5", f.color)} />
+                      </div>
+                      <h3 className="font-display text-lg font-semibold">{f.title}</h3>
                       <p className="mt-1 text-sm text-text-secondary">{f.desc}</p>
                     </Card>
                   ))}
@@ -421,9 +433,11 @@ export default function HomePage() {
       <section className="container py-20">
         <div className="grid gap-6 md:grid-cols-2">
           <ScrollReveal>
-            <Card className="h-full p-8 transition-all hover:border-accent-blue/50">
-              <Users className="size-8 text-accent-blue" />
-              <h3 className="mt-4 font-display text-2xl font-semibold">For Recruiters</h3>
+            <Card className="group h-full p-8 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.45)]">
+              <div className="mb-5 inline-flex size-16 items-center justify-center rounded-2xl bg-accent-blue/15">
+                <Users className="size-8 text-accent-blue" />
+              </div>
+              <h3 className="font-display text-2xl font-semibold">For Recruiters</h3>
               <p className="mt-2 text-text-secondary">Screen, interview and decide at scale without burning out your team.</p>
               <ul className="mt-5 space-y-2 text-sm text-text-secondary">
                 {["Auto-rank every applicant in seconds", "Consistent, structured interviews", "Evidence-backed decisions"].map((x) => (
@@ -431,14 +445,16 @@ export default function HomePage() {
                 ))}
               </ul>
               <Link href="/for-recruiters" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-accent-blue">
-                Explore recruiter tools <ArrowRight className="size-4" />
+                Explore recruiter tools <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </Card>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <Card className="h-full p-8 transition-all hover:border-accent-violet/50">
-              <Eye className="size-8 text-accent-violet" />
-              <h3 className="mt-4 font-display text-2xl font-semibold">For Candidates</h3>
+            <Card className="group h-full p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10 [border-top:2px_solid_rgba(139,92,246,0.45)]">
+              <div className="mb-5 inline-flex size-16 items-center justify-center rounded-2xl bg-accent-violet/15">
+                <Eye className="size-8 text-accent-violet" />
+              </div>
+              <h3 className="font-display text-2xl font-semibold">For Candidates</h3>
               <p className="mt-2 text-text-secondary">Full transparency from application to offer — no more being ghosted.</p>
               <ul className="mt-5 space-y-2 text-sm text-text-secondary">
                 {["Know your CV score instantly", "Interview on your schedule", "Real-time status at every stage"].map((x) => (
@@ -446,7 +462,7 @@ export default function HomePage() {
                 ))}
               </ul>
               <Link href="/for-candidates" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-accent-violet">
-                See the candidate experience <ArrowRight className="size-4" />
+                See the candidate experience <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </Card>
           </ScrollReveal>
