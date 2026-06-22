@@ -5,6 +5,7 @@ import {
   ClipboardCheck,
   CheckCircle2,
   Send,
+  Video,
   Eye,
   Clock,
   Scale,
@@ -21,10 +22,11 @@ import { cn } from "@/lib/utils";
 
 const journey = [
   { icon: Send, name: "Apply", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/10", desc: "Submit once. No 40-field forms, no re-typing your resume into yet another portal." },
-  { icon: FileSearch, name: "CV Scored", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/10", desc: "Get an instant, explainable match score so you know exactly where you stand." },
-  { icon: Mic, name: "Voice Interview", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/10", desc: "A natural conversation on your schedule, day or night, no awkward calendar tetris." },
-  { icon: ClipboardCheck, name: "Assessment", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/10", desc: "Show real skills with a fair, role-relevant test, not trick questions." },
-  { icon: CheckCircle2, name: "Decision", color: "text-success", ring: "border-success/40", glow: "bg-success/10", desc: "A clear yes or no with reasoning, delivered fast. No more silence." },
+  { icon: FileSearch, name: "CV Scored", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/10", desc: "Get an instant, explainable match score so you know exactly where you stand." },
+  { icon: Mic, name: "Voice Interview", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/10", desc: "A natural conversation on your schedule, day or night, no awkward calendar tetris." },
+  { icon: Video, name: "Deep Interview", color: "text-amber-400", ring: "border-amber-400/40", glow: "bg-amber-400/10", desc: "A live video conversation with Aria, your AI interviewer. Real follow-up questions based on what you actually say — not a script." },
+  { icon: ClipboardCheck, name: "Assessment", color: "text-success", ring: "border-success/40", glow: "bg-success/10", desc: "Show real skills with a fair, role-relevant test, not trick questions." },
+  { icon: CheckCircle2, name: "Decision", color: "text-pink-400", ring: "border-pink-400/40", glow: "bg-pink-400/10", desc: "A clear yes or no with reasoning, delivered fast. No more silence." },
 ];
 
 const transparency = [
@@ -139,10 +141,10 @@ export default function ForCandidatesPage() {
               Your journey, <span className="gradient-text">step by step</span>
             </h2>
             <p className="mt-4 max-w-2xl text-text-secondary">
-              Five clear stages. You always know which one you are in.
+              Six clear stages. You always know which one you are in.
             </p>
           </ScrollReveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-5">
+          <div className="mt-14 grid gap-6 sm:grid-cols-3 lg:grid-cols-6">
             {journey.map((s, i) => (
               <ScrollReveal key={s.name} delay={i * 0.1}>
                 <Card className="relative flex h-full flex-col items-center p-6 text-center transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
