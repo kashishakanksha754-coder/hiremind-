@@ -21,19 +21,19 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { cn } from "@/lib/utils";
 
 const journey = [
-  { icon: Send, name: "Apply", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/10", desc: "Submit once. No 40-field forms, no re-typing your resume into yet another portal." },
-  { icon: FileSearch, name: "CV Scored", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/10", desc: "Get an instant, explainable match score so you know exactly where you stand." },
-  { icon: Mic, name: "Voice Interview", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/10", desc: "A natural conversation on your schedule, day or night, no awkward calendar tetris." },
-  { icon: Video, name: "Deep Interview", color: "text-amber-400", ring: "border-amber-400/40", glow: "bg-amber-400/10", desc: "A live video conversation with Aria, your AI interviewer. Real follow-up questions based on what you actually say — not a script." },
-  { icon: ClipboardCheck, name: "Assessment", color: "text-success", ring: "border-success/40", glow: "bg-success/10", desc: "Show real skills with a fair, role-relevant test, not trick questions." },
-  { icon: CheckCircle2, name: "Decision", color: "text-pink-400", ring: "border-pink-400/40", glow: "bg-pink-400/10", desc: "A clear yes or no with reasoning, delivered fast. No more silence." },
+  { icon: Send, name: "Apply", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/15", desc: "Submit once. No 40-field forms, no re-typing your resume into yet another portal." },
+  { icon: FileSearch, name: "CV Scored", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/15", desc: "Get an instant, explainable match score so you know exactly where you stand." },
+  { icon: Mic, name: "Voice Interview", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/15", desc: "A natural conversation on your schedule, day or night, no awkward calendar tetris." },
+  { icon: Video, name: "Deep Interview", color: "text-amber-400", ring: "border-amber-400/40", glow: "bg-amber-400/15", desc: "A live video conversation with Aria, your AI interviewer. Real follow-up questions based on what you actually say — not a script." },
+  { icon: ClipboardCheck, name: "Assessment", color: "text-success", ring: "border-success/40", glow: "bg-success/15", desc: "Show real skills with a fair, role-relevant test, not trick questions." },
+  { icon: CheckCircle2, name: "Decision", color: "text-pink-400", ring: "border-pink-400/40", glow: "bg-pink-400/15", desc: "A clear yes or no with reasoning, delivered fast. No more silence." },
 ];
 
 const transparency = [
-  { icon: FileSearch, name: "CV Screening", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/10", see: "Your match score and a plain-language breakdown of which skills lined up and which gaps mattered." },
-  { icon: Mic, name: "Voice Interview", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/10", see: "Confirmation the moment your interview is reviewed, plus a summary of what the conversation covered." },
-  { icon: ClipboardCheck, name: "Skill Assessment", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/10", see: "How you performed against the role bar, with topic-level results so you learn from every attempt." },
-  { icon: CheckCircle2, name: "Decision", color: "text-success", ring: "border-success/40", glow: "bg-success/10", see: "A real decision with the reasoning behind it, never a black box and never radio silence." },
+  { icon: FileSearch, name: "CV Screening", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/15", see: "Your match score and a plain-language breakdown of which skills lined up and which gaps mattered." },
+  { icon: Mic, name: "Voice Interview", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/15", see: "Confirmation the moment your interview is reviewed, plus a summary of what the conversation covered." },
+  { icon: ClipboardCheck, name: "Skill Assessment", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/15", see: "How you performed against the role bar, with topic-level results so you learn from every attempt." },
+  { icon: CheckCircle2, name: "Decision", color: "text-success", ring: "border-success/40", glow: "bg-success/15", see: "A real decision with the reasoning behind it, never a black box and never radio silence." },
 ];
 
 const highlights = [
@@ -151,7 +151,7 @@ export default function ForCandidatesPage() {
                   <span className="absolute right-3 top-3 text-xs font-semibold text-text-secondary">
                     0{i + 1}
                   </span>
-                  <div className={cn("flex h-14 w-14 items-center justify-center rounded-xl border", s.ring, s.glow)}>
+                  <div className={cn("flex h-14 w-14 items-center justify-center rounded-xl", s.glow)}>
                     <s.icon className={cn("h-7 w-7", s.color)} />
                   </div>
                   <h3 className="font-display mt-4 text-lg font-semibold">{s.name}</h3>
@@ -178,7 +178,7 @@ export default function ForCandidatesPage() {
             {transparency.map((t, i) => (
               <ScrollReveal key={t.name} delay={i * 0.1}>
                 <Card className="flex h-full gap-4 p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
-                  <div className={cn("flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border", t.ring, t.glow)}>
+                  <div className={cn("flex h-12 w-12 shrink-0 items-center justify-center rounded-lg", t.glow)}>
                     <t.icon className={cn("h-6 w-6", t.color)} />
                   </div>
                   <div>
@@ -204,7 +204,7 @@ export default function ForCandidatesPage() {
             {highlights.map((h, i) => (
               <ScrollReveal key={h.title} delay={i * 0.1}>
                 <Card className="h-full p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-accent-blue/40 bg-accent-blue/10">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent-blue/15">
                     <h.icon className="h-6 w-6 text-accent-blue" />
                   </div>
                   <h3 className="font-display mt-5 text-lg font-semibold">{h.title}</h3>

@@ -129,9 +129,9 @@ const features = [
 ];
 
 const stats = [
-  { value: 12, suffix: "", label: "hours saved per recruiter every week", sub: "Reclaimed from screening and scheduling busywork." },
-  { value: 3, suffix: "x", label: "faster time-to-hire", sub: "Move from application to offer in days, not weeks." },
-  { value: 85, suffix: "%", label: "reduction in manual screening", sub: "AI handles the first pass so your team focuses on people." },
+  { icon: Clock, value: 12, suffix: "", label: "hours saved per recruiter every week", sub: "Reclaimed from screening and scheduling busywork." },
+  { icon: Zap, value: 3, suffix: "x", label: "faster time-to-hire", sub: "Move from application to offer in days, not weeks." },
+  { icon: ShieldCheck, value: 85, suffix: "%", label: "reduction in manual screening", sub: "AI handles the first pass so your team focuses on people." },
 ];
 
 export default function ForRecruitersPage() {
@@ -188,9 +188,9 @@ export default function ForRecruitersPage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {painPoints.map((p, i) => (
               <ScrollReveal key={p.title} delay={i * 0.1}>
-                <Card className="h-full p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-border-subtle bg-bg-secondary">
-                    <p.icon className="h-6 w-6 text-danger" />
+                <Card className="h-full p-6 transition-all hover:border-danger/40 hover:shadow-lg hover:shadow-red-500/10 [border-top:2px_solid_rgba(239,68,68,0.4)]">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-danger/15">
+                    <p.icon className="h-7 w-7 text-danger" />
                   </div>
                   <h3 className="font-display mt-5 text-xl font-semibold">{p.title}</h3>
                   <p className="mt-3 text-text-secondary">{p.desc}</p>
@@ -218,7 +218,7 @@ export default function ForRecruitersPage() {
               <ScrollReveal key={s.name} delay={i * 0.08} y={24}>
                 <Card className="flex flex-col gap-5 p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 md:flex-row md:items-center">
                   <div className="flex items-center gap-4 md:w-64 md:shrink-0">
-                    <div className={cn("flex h-14 w-14 items-center justify-center rounded-xl border", s.ring, s.glow)}>
+                    <div className={cn("flex h-14 w-14 items-center justify-center rounded-xl", s.glow)}>
                       <s.icon className={cn("h-7 w-7", s.color)} />
                     </div>
                     <div>
@@ -290,7 +290,10 @@ export default function ForRecruitersPage() {
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {stats.map((s, i) => (
               <ScrollReveal key={s.label} delay={i * 0.1}>
-                <Card className="h-full p-8 text-center transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
+                <Card className="h-full p-10 text-center transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
+                  <div className="mx-auto mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent-blue/15">
+                    <s.icon className="size-6 text-accent-blue" />
+                  </div>
                   <div className="font-display text-5xl font-bold gradient-text">
                     <CounterAnimation value={s.value} suffix={s.suffix} />
                   </div>
