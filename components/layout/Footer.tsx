@@ -16,7 +16,7 @@ const columns = [
     links: [
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
-      { href: "/careers/hiremind", label: "Careers" },
+      { href: "/careers/recruitai", label: "Careers" },
     ],
   },
   {
@@ -47,7 +47,7 @@ export function Footer() {
               <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-accent-blue to-accent-violet">
                 <Brain className="h-5 w-5 text-white" />
               </span>
-              <span className="font-display text-lg font-extrabold text-text-primary">HireMind</span>
+              <span className="font-display text-lg font-extrabold text-text-primary">Recruit AI</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-text-secondary">
               The AI hiring pipeline that screens, interviews, and decides — so recruiters move
@@ -90,7 +90,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border-subtle pt-6 text-sm text-text-secondary md:flex-row">
-          <p>© {new Date().getFullYear()} HireMind Technologies. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Recruit AI Technologies. All rights reserved.</p>
           <p>
             We use cookies to improve your experience. See our{" "}
             <Link href="/legal/cookies" className="underline hover:text-text-primary">

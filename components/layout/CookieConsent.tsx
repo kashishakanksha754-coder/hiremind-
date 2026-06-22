@@ -6,7 +6,7 @@ import { Cookie } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GradientButton } from "@/components/ui/GradientButton";
 
-const STORAGE_KEY = "hiremind_cookie_consent";
+const STORAGE_KEY = "recruitai_cookie_consent";
 
 export function CookieConsent() {
   const [visible, setVisible] = useState(false);
@@ -29,7 +29,7 @@ export function CookieConsent() {
         <div className="flex items-start gap-3">
           <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-accent-violet" />
           <p className="text-sm text-text-secondary">
-            We use cookies to keep HireMind secure, remember your preferences, and understand how the
+            We use cookies to keep Recruit AI secure, remember your preferences, and understand how the
             product is used. Read our{" "}
             <Link href="/legal/cookies" className="underline hover:text-text-primary">
               Cookie Policy

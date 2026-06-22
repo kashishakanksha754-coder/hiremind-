@@ -13,20 +13,20 @@ const contactChannels = [
   {
     icon: Mail,
     title: "General",
-    description: "Questions about HireMind or just want to say hello?",
-    value: "hello@hiremind.ai",
+    description: "Questions about Recruit AI or just want to say hello?",
+    value: "hello@recruitai.app",
   },
   {
     icon: LifeBuoy,
     title: "Support",
-    description: "Already using HireMind and need a hand?",
-    value: "support@hiremind.ai",
+    description: "Already using Recruit AI and need a hand?",
+    value: "support@recruitai.app",
   },
   {
     icon: Briefcase,
     title: "Sales",
     description: "Looking for a plan for your team or enterprise?",
-    value: "sales@hiremind.ai",
+    value: "sales@recruitai.app",
   },
 ];
 

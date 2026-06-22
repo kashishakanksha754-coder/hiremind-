@@ -101,7 +101,7 @@ export default function CareersPage({ params }: { params: { company: string } })
           <p className="text-[#94A3B8] text-sm">
             Powered by{' '}
             <Link href="/" className="text-blue-400 hover:text-blue-300 transition-colors font-semibold">
-              HireMind
+              Recruit AI
             </Link>
             {' '}— AI-powered hiring
           </p>

@@ -93,7 +93,7 @@ const stages = [
     color: "text-pink-400",
     ring: "border-pink-400/40",
     glow: "bg-pink-400/10",
-    what: "Generate, approve and send a personalised offer in a single click, then track acceptance without leaving HireMind.",
+    what: "Generate, approve and send a personalised offer in a single click, then track acceptance without leaving Recruit AI.",
   },
 ];
 
@@ -154,7 +154,7 @@ export default function ForRecruitersPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <p className="mt-6 max-w-2xl text-lg text-text-secondary md:text-xl">
-              HireMind's hiring agents handle the groundwork — reading resumes, running
+              Recruit AI's hiring agents handle the groundwork — reading resumes, running
               first-round screens, scoring assessments — while your team stays in control
               of every decision that actually matters. Agents do the legwork; your
               recruiters make the call.

@@ -10,7 +10,7 @@ export type MockUser = {
 export function getUser(): MockUser | null {
   if (typeof window === "undefined") return null;
   try {
-    const raw = localStorage.getItem("hiremind_user");
+    const raw = localStorage.getItem("recruitai_user");
     return raw ? (JSON.parse(raw) as MockUser) : null;
   } catch {
     return null;
@@ -18,9 +18,9 @@ export function getUser(): MockUser | null {
 }
 
 export function setUser(user: MockUser) {
-  localStorage.setItem("hiremind_user", JSON.stringify(user));
+  localStorage.setItem("recruitai_user", JSON.stringify(user));
 }
 
 export function clearUser() {
-  localStorage.removeItem("hiremind_user");
+  localStorage.removeItem("recruitai_user");
 }

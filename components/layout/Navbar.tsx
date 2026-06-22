@@ -69,7 +69,7 @@ export function Navbar() {
             <Brain className="h-5 w-5 text-white" />
           </span>
           <span className="font-display text-lg font-extrabold tracking-tight text-text-primary">
-            HireMind
+            Recruit AI
           </span>
         </Link>
 

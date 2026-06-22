@@ -5,14 +5,14 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: {
-    default: "HireMind — AI-Powered Applicant Tracking System",
-    template: "%s — HireMind",
+    default: "Recruit AI — AI-Powered Applicant Tracking System",
+    template: "%s — Recruit AI",
   },
   description:
-    "HireMind is the AI hiring pipeline that screens CVs, runs voice interviews, scores assessments, and decides — so recruiters hire 10x faster and candidates always know where they stand.",
+    "Recruit AI is the AI hiring pipeline that screens CVs, runs voice interviews, scores assessments, and decides — so recruiters hire 10x faster and candidates always know where they stand.",
   keywords: ["ATS", "AI recruiting", "applicant tracking", "AI interviews", "hiring software"],
   openGraph: {
-    title: "HireMind — AI-Powered Applicant Tracking System",
+    title: "Recruit AI — AI-Powered Applicant Tracking System",
     description: "Hire 10x faster with AI that screens, interviews, and decides.",
     type: "website",
   },

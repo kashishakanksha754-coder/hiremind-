@@ -11,7 +11,7 @@ export default function CookiePolicyPage() {
             className="mb-8 inline-flex items-center gap-2 text-text-secondary transition-colors hover:text-text-primary"
           >
             <Brain className="h-5 w-5 text-accent-blue" />
-            <span className="font-display font-semibold">HireMind</span>
+            <span className="font-display font-semibold">Recruit AI</span>
           </Link>
 
           <h1 className="font-display text-4xl font-bold text-text-primary">
@@ -28,7 +28,7 @@ export default function CookiePolicyPage() {
                 Cookies are small text files placed on your device when you visit
                 a website. They allow the site to recognise your device, remember
                 your preferences, and understand how the service is used. This
-                Cookie Policy explains how HireMind uses cookies and similar
+                Cookie Policy explains how Recruit AI uses cookies and similar
                 technologies, such as local storage and pixels, across our
                 platform.
               </p>
@@ -145,7 +145,7 @@ export default function CookiePolicyPage() {
                 cookie categories. You can also control cookies through your
                 browser settings, including blocking or deleting existing
                 cookies. Please note that disabling strictly necessary cookies
-                may prevent parts of the HireMind platform from functioning
+                may prevent parts of the Recruit AI platform from functioning
                 correctly.
               </p>
             </div>
@@ -188,10 +188,10 @@ export default function CookiePolicyPage() {
                 If you have questions about our use of cookies, please contact us
                 at{" "}
                 <Link
-                  href="mailto:privacy@hiremind.ai"
+                  href="mailto:privacy@recruitai.app"
                   className="text-accent-blue hover:underline"
                 >
-                  privacy@hiremind.ai
+                  privacy@recruitai.app
                 </Link>
                 .
               </p>
