@@ -94,7 +94,7 @@ function SidebarContent({
         <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-accent-blue to-accent-violet">
           <Sparkles className="h-5 w-5 text-white" />
         </div>
-        <span className="font-display text-lg font-bold text-text-primary">
+        <span className="whitespace-nowrap font-display text-base font-bold text-text-primary">
           Recruit AI
         </span>
       </Link>

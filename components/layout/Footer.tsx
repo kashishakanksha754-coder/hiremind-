@@ -43,11 +43,11 @@ export function Footer() {
       <div className="container py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-accent-blue to-accent-violet">
+            <Link href="/" className="flex shrink-0 items-center gap-2">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent-blue to-accent-violet">
                 <Brain className="h-5 w-5 text-white" />
               </span>
-              <span className="font-display text-lg font-extrabold text-text-primary">Recruit AI</span>
+              <span className="whitespace-nowrap font-display text-base font-extrabold text-text-primary">Recruit AI</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-text-secondary">
               The AI hiring pipeline that screens, interviews, and decides — so recruiters move
