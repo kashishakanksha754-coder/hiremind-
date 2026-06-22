@@ -11,6 +11,7 @@ import {
   Video,
   CheckCircle2,
   FileSignature,
+  Send,
   Sparkles,
   ArrowRight,
   Zap,
@@ -40,6 +41,15 @@ const stages = [
   { icon: Video, name: "Deep Interview", color: "text-amber-400", ring: "border-amber-400/40", glow: "bg-amber-400/10", desc: "A live 45-minute video call with Aria — real conversation, scored across 6 competencies." },
   { icon: CheckCircle2, name: "Selection", color: "text-success", ring: "border-success/40", glow: "bg-success/10", desc: "Evidence-backed recommendations, zero gut-feel bias." },
   { icon: FileSignature, name: "Offer Letter", color: "text-pink-400", ring: "border-pink-400/40", glow: "bg-pink-400/10", desc: "Generate, approve and send offers in a single click." },
+];
+
+const candidateStages = [
+  { icon: Send, name: "Apply", color: "text-accent-blue", ring: "border-accent-blue/40", glow: "bg-accent-blue/10", desc: "Submit once. Your profile is auto-formatted and sent to the hiring team." },
+  { icon: FileSearch, name: "CV Scored", color: "text-accent-violet", ring: "border-accent-violet/40", glow: "bg-accent-violet/10", desc: "AI reads your CV in seconds and gives you an honest fit score for the role." },
+  { icon: Mic, name: "Voice Interview", color: "text-cyan-400", ring: "border-cyan-400/40", glow: "bg-cyan-400/10", desc: "A short AI voice call on your schedule — ask questions, share your story." },
+  { icon: Video, name: "Deep Interview", color: "text-amber-400", ring: "border-amber-400/40", glow: "bg-amber-400/10", desc: "A live video conversation with Aria, your AI interviewer. Real follow-up questions based on what you actually say — not a script." },
+  { icon: ClipboardCheck, name: "Assessment", color: "text-success", ring: "border-success/40", glow: "bg-success/10", desc: "A focused skills test built for the role. Complete it whenever suits you." },
+  { icon: CheckCircle2, name: "Decision", color: "text-pink-400", ring: "border-pink-400/40", glow: "bg-pink-400/10", desc: "You get a clear outcome — no ghosting, no waiting in silence." },
 ];
 
 const testimonials = [
@@ -237,30 +247,53 @@ export default function HomePage() {
 
       {/* PIPELINE */}
       <section className="container py-20">
-        <ScrollReveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">
-            One pipeline. <span className="gradient-text">Agents do the legwork, you make the call.</span>
-          </h2>
-          <p className="mt-4 text-text-secondary">
-            Every stage is handled by your hiring agents, scored and audit-ready — so your team focuses on the decisions that actually matter.
-          </p>
-        </ScrollReveal>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {stages.map((st, i) => (
-            <ScrollReveal key={st.name} delay={i * 0.07}>
-              <Card className={cn("h-full p-6 transition-all hover:shadow-lg hover:shadow-blue-500/10", "hover:border-accent-blue/50")}>
-                <div className={cn("mb-4 inline-flex size-12 items-center justify-center rounded-xl border", st.ring, st.glow)}>
-                  <st.icon className={cn("size-6", st.color)} />
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono text-text-secondary">0{i + 1}</span>
-                  <h3 className="font-display text-lg font-semibold">{st.name}</h3>
-                </div>
-                <p className="mt-2 text-sm text-text-secondary">{st.desc}</p>
-              </Card>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={audience + "-pipeline-heading"}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ScrollReveal className="mx-auto max-w-2xl text-center">
+              <h2 className="font-display text-3xl font-bold md:text-4xl">
+                {isRecruiter
+                  ? <>One pipeline. <span className="gradient-text">Agents do the legwork, you make the call.</span></>
+                  : <>Your journey, <span className="gradient-text">step by step.</span></>}
+              </h2>
+              <p className="mt-4 text-text-secondary">
+                {isRecruiter
+                  ? "Every stage is handled by your hiring agents, scored and audit-ready — so your team focuses on the decisions that actually matter."
+                  : "Six clear stages. You always know which one you're in."}
+              </p>
             </ScrollReveal>
-          ))}
-        </div>
+          </motion.div>
+        </AnimatePresence>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={audience + "-pipeline-grid"}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35 }}
+            className="mt-12 grid gap-5 sm:grid-cols-3 lg:grid-cols-6"
+          >
+            {(isRecruiter ? stages : candidateStages).map((st, i) => (
+              <ScrollReveal key={st.name} delay={i * 0.05}>
+                <Card className={cn("h-full p-5 transition-all hover:shadow-lg hover:shadow-blue-500/10", "hover:border-accent-blue/50")}>
+                  <div className={cn("mb-3 inline-flex size-10 items-center justify-center rounded-xl border", st.ring, st.glow)}>
+                    <st.icon className={cn("size-5", st.color)} />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-mono text-text-secondary">0{i + 1}</span>
+                    <h3 className="font-display text-sm font-semibold">{st.name}</h3>
+                  </div>
+                  <p className="mt-2 text-xs text-text-secondary">{st.desc}</p>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </section>
 
       {/* FEATURES BENTO */}
