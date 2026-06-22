@@ -85,7 +85,7 @@ export default function AssessmentRoom({ assessmentId }: AssessmentRoomProps) {
           <div className="text-center mb-6">
             <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-2xl mx-auto mb-4">🧠</div>
             <h1 className="text-2xl font-bold text-[#F1F5F9]">Skill Assessment</h1>
-            <p className="text-[#94A3B8] mt-2">Senior Frontend Developer — HireMind</p>
+            <p className="text-[#94A3B8] mt-2">Senior Frontend Developer — Recruit AI</p>
           </div>
           <div className="space-y-3 mb-6">
             {[

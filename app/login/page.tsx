@@ -41,13 +41,13 @@ function LoginForm() {
       <div className="relative w-full max-w-md">
         <Link href="/" className="mb-8 flex items-center justify-center gap-2">
           <Brain className="h-7 w-7 text-accent-blue" />
-          <span className="font-display text-2xl font-bold gradient-text">HireMind</span>
+          <span className="font-display text-2xl font-bold gradient-text">Recruit AI</span>
         </Link>
 
         <div className="rounded-xl border border-border-subtle bg-card p-8 shadow-xl">
           <div className="mb-6 text-center">
             <h1 className="font-display text-2xl font-semibold text-text-primary">Welcome back</h1>
-            <p className="mt-1 text-sm text-text-secondary">Choose a demo account to explore HireMind.</p>
+            <p className="mt-1 text-sm text-text-secondary">Choose a demo account to explore Recruit AI.</p>
           </div>
 
           <div className="space-y-3">

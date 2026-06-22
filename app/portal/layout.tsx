@@ -80,7 +80,7 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
             H
           </div>
           <span className="font-display text-lg font-semibold gradient-text">
-            HireMind
+            Recruit AI
           </span>
         </Link>
         <NavLinks />
@@ -106,7 +106,7 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
           <aside className="absolute inset-y-0 left-0 flex w-64 flex-col border-r border-border-subtle bg-bg-secondary px-4 py-6">
             <div className="mb-8 flex items-center justify-between px-2">
               <span className="font-display text-lg font-semibold gradient-text">
-                HireMind
+                Recruit AI
               </span>
               <button onClick={() => setDrawerOpen(false)}>
                 <X className="h-5 w-5 text-text-secondary" />

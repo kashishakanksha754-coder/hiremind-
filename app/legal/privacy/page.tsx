@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
             className="mb-8 inline-flex items-center gap-2 text-text-secondary transition-colors hover:text-text-primary"
           >
             <Brain className="h-5 w-5 text-accent-blue" />
-            <span className="font-display font-semibold">HireMind</span>
+            <span className="font-display font-semibold">Recruit AI</span>
           </Link>
 
           <h1 className="font-display text-4xl font-bold text-text-primary">
@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
             </h2>
             <div className="space-y-4 leading-relaxed text-text-secondary">
               <p>
-                HireMind ("HireMind", "we", "us" or "our") provides an
+                Recruit AI ("Recruit AI", "we", "us" or "our") provides an
                 AI-assisted recruitment platform that helps employers screen,
                 interview and evaluate job candidates. This Privacy Policy
                 explains what personal data we collect, how we use it, the role
@@ -53,7 +53,7 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-4 leading-relaxed text-text-secondary">
               <p>
                 We collect different categories of personal data depending on
-                whether you are a recruiter using HireMind or a candidate
+                whether you are a recruiter using Recruit AI or a candidate
                 applying through our platform.
               </p>
               <ul className="list-disc space-y-2 pl-6 text-text-secondary">
@@ -83,7 +83,7 @@ export default function PrivacyPolicyPage() {
               <p>
                 We ask recruiters to ensure that candidates are informed about,
                 and where required have consented to, the processing of their
-                application data through HireMind.
+                application data through Recruit AI.
               </p>
             </div>
           </section>
@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-4 leading-relaxed text-text-secondary">
               <p>We use personal data for the following purposes:</p>
               <ul className="list-disc space-y-2 pl-6 text-text-secondary">
-                <li>To provide, operate and maintain the HireMind platform.</li>
+                <li>To provide, operate and maintain the Recruit AI platform.</li>
                 <li>
                   To analyse CVs, conduct AI voice interviews, transcribe
                   responses and generate candidate assessments and scores.
@@ -127,7 +127,7 @@ export default function PrivacyPolicyPage() {
             </h2>
             <div className="space-y-4 leading-relaxed text-text-secondary">
               <p>
-                HireMind uses artificial intelligence to screen and score
+                Recruit AI uses artificial intelligence to screen and score
                 candidate applications. Our models analyse CV content, conduct
                 structured voice interviews, transcribe and evaluate responses,
                 and produce numerical scores and qualitative summaries intended
@@ -135,7 +135,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <p>
                 These AI outputs are decision-support tools, not final
-                decisions. HireMind does not make fully automated rejection
+                decisions. Recruit AI does not make fully automated rejection
                 decisions that produce legal or similarly significant effects
                 on a candidate without human involvement. A recruiter retains
                 responsibility for hiring decisions and must apply human
@@ -180,10 +180,10 @@ export default function PrivacyPolicyPage() {
                 A current list of material sub-processors is available on
                 request from{" "}
                 <Link
-                  href="mailto:privacy@hiremind.ai"
+                  href="mailto:privacy@recruitai.app"
                   className="text-accent-blue hover:underline"
                 >
-                  privacy@hiremind.ai
+                  privacy@recruitai.app
                 </Link>
                 .
               </p>
@@ -281,7 +281,7 @@ export default function PrivacyPolicyPage() {
             </h2>
             <div className="space-y-4 leading-relaxed text-text-secondary">
               <p>
-                HireMind may process and store data in countries other than your
+                Recruit AI may process and store data in countries other than your
                 own, including through cloud and AI sub-processors. Where data is
                 transferred internationally, we rely on appropriate safeguards
                 such as Standard Contractual Clauses and ensure that transfers
@@ -297,7 +297,7 @@ export default function PrivacyPolicyPage() {
             </h2>
             <div className="space-y-4 leading-relaxed text-text-secondary">
               <p>
-                HireMind is intended for use in professional recruitment and is
+                Recruit AI is intended for use in professional recruitment and is
                 not directed at children. We do not knowingly collect personal
                 data of children. Under the DPDP Act, processing of a child&apos;s
                 data requires verifiable parental consent; if we become aware
@@ -331,10 +331,10 @@ export default function PrivacyPolicyPage() {
                 If you have questions about this Privacy Policy or wish to
                 exercise your rights, please contact our privacy team at{" "}
                 <Link
-                  href="mailto:privacy@hiremind.ai"
+                  href="mailto:privacy@recruitai.app"
                   className="text-accent-blue hover:underline"
                 >
-                  privacy@hiremind.ai
+                  privacy@recruitai.app
                 </Link>
                 .
               </p>

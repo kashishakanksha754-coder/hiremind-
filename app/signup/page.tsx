@@ -63,7 +63,7 @@ export default function SignupPage() {
 
   function handleContinue() {
     if (!role) {
-      toast({ title: "Select a role", description: "Tell us how you'll be using HireMind.", variant: "destructive" });
+      toast({ title: "Select a role", description: "Tell us how you'll be using Recruit AI.", variant: "destructive" });
       return;
     }
     setStep(2);
@@ -108,7 +108,7 @@ export default function SignupPage() {
     });
     setLoading(false);
 
-    toast({ title: "Account created!", description: `Welcome to HireMind, ${fullName.split(" ")[0]}!` });
+    toast({ title: "Account created!", description: `Welcome to Recruit AI, ${fullName.split(" ")[0]}!` });
     router.push(role === "recruiter" ? "/dashboard" : "/portal");
   }
 
@@ -119,7 +119,7 @@ export default function SignupPage() {
       <div className="relative w-full max-w-lg">
         <Link href="/" className="mb-8 flex items-center justify-center gap-2">
           <Brain className="h-7 w-7 text-accent-blue" />
-          <span className="font-display text-2xl font-bold gradient-text">HireMind</span>
+          <span className="font-display text-2xl font-bold gradient-text">Recruit AI</span>
         </Link>
 
         <div className="rounded-xl border border-border-subtle bg-card p-8 shadow-xl">
@@ -127,7 +127,7 @@ export default function SignupPage() {
             <>
               <div className="mb-6 text-center">
                 <h1 className="font-display text-2xl font-semibold text-text-primary">Create your account</h1>
-                <p className="mt-1 text-sm text-text-secondary">First, tell us how you'll use HireMind.</p>
+                <p className="mt-1 text-sm text-text-secondary">First, tell us how you'll use Recruit AI.</p>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">

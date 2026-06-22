@@ -1,5 +1,5 @@
 // ============================================================================
-// Mock data for the HireMind recruiter dashboard (Indian-context sample data).
+// Mock data for the Recruit AI recruiter dashboard (Indian-context sample data).
 // All objects are typed against types/index.ts so pages stay schema-accurate.
 // ============================================================================
 

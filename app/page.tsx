@@ -43,7 +43,7 @@ const stages = [
 ];
 
 const testimonials = [
-  { quote: "HireMind cut our screening time from days to minutes. Our recruiters finally focus on people, not paperwork.", name: "Priya Nair", role: "Head of Talent, Razorpay" },
+  { quote: "Recruit AI cut our screening time from days to minutes. Our recruiters finally focus on people, not paperwork.", name: "Priya Nair", role: "Head of Talent, Razorpay" },
   { quote: "The AI voice interviews are shockingly natural. Candidates love the speed and we love the consistency.", name: "Arjun Mehta", role: "VP Engineering, Groww" },
   { quote: "We doubled our hiring throughput without adding a single recruiter. The ROI was obvious in week one.", name: "Sneha Reddy", role: "People Lead, Meesho" },
 ];
@@ -113,7 +113,7 @@ export default function HomePage() {
                 </h1>
                 <p className="mx-auto mt-6 max-w-xl text-lg text-text-secondary">
                   {isRecruiter
-                    ? "HireMind runs your entire pipeline — from CV to offer letter — so your team makes faster, fairer, evidence-based hiring decisions."
+                    ? "Recruit AI runs your entire pipeline — from CV to offer letter — so your team makes faster, fairer, evidence-based hiring decisions."
                     : "No more black-box applications. Get screened, interviewed and scored by AI with real-time transparency at every single stage."}
                 </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -142,7 +142,7 @@ export default function HomePage() {
                   <span className="size-3 rounded-full bg-warning/70" />
                   <span className="size-3 rounded-full bg-success/70" />
                   <span className="ml-3 flex items-center gap-2 text-xs text-text-secondary">
-                    <Brain className="size-3.5 text-accent-blue" /> HireMind · Pipeline Overview
+                    <Brain className="size-3.5 text-accent-blue" /> Recruit AI · Pipeline Overview
                   </span>
                 </div>
                 <div className="grid gap-4 md:grid-cols-3">
@@ -439,7 +439,7 @@ export default function HomePage() {
                 Ready to <span className="gradient-text">transform</span> how you hire?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-text-secondary">
-                Join the teams making faster, fairer hiring decisions with HireMind.
+                Join the teams making faster, fairer hiring decisions with Recruit AI.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link href="/signup"><GradientButton size="lg">Start Free Trial <ArrowRight className="size-4" /></GradientButton></Link>

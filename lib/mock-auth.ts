@@ -23,7 +23,7 @@ export const mockCandidateUser: MockUser = {
 export function getMockUser(): MockUser | null {
   if (typeof window === 'undefined') return null
   try {
-    const stored = localStorage.getItem('hiremind_user')
+    const stored = localStorage.getItem('recruitai_user')
     return stored ? JSON.parse(stored) : null
   } catch {
     return null
@@ -31,11 +31,11 @@ export function getMockUser(): MockUser | null {
 }
 
 export function setMockUser(user: MockUser): void {
-  localStorage.setItem('hiremind_user', JSON.stringify(user))
+  localStorage.setItem('recruitai_user', JSON.stringify(user))
 }
 
 export function clearMockUser(): void {
-  localStorage.removeItem('hiremind_user')
+  localStorage.removeItem('recruitai_user')
 }
 
 export function isLoggedIn(): boolean {

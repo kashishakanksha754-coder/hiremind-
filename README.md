@@ -1,2 +1,2 @@
-# hiremind-
-HireMind — AI-powered Applicant Tracking System for recruiters and candidates
+# recruit-ai
+Recruit AI — AI-powered Applicant Tracking System for recruiters and candidates

@@ -79,7 +79,7 @@ export default function AboutPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <p className="mt-6 max-w-2xl mx-auto text-lg text-text-secondary">
-              HireMind is the AI hiring co-pilot built for teams who believe the right
+              Recruit AI is the AI hiring co-pilot built for teams who believe the right
               person should never be lost in a pile of resumes.
             </p>
           </ScrollReveal>
@@ -91,7 +91,7 @@ export default function AboutPage() {
         <div className="container py-20 md:py-28 max-w-3xl">
           <ScrollReveal>
             <h2 className="font-display text-3xl md:text-4xl font-bold">
-              Why we built <span className="gradient-text">HireMind</span>
+              Why we built <span className="gradient-text">Recruit AI</span>
             </h2>
           </ScrollReveal>
           <div className="mt-8 space-y-6 text-text-secondary text-lg leading-relaxed">
@@ -112,7 +112,7 @@ export default function AboutPage() {
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
               <p>
-                We started HireMind because we knew AI could fix this, not by replacing
+                We started Recruit AI because we knew AI could fix this, not by replacing
                 human judgment, but by clearing away the noise. Our models read every
                 application carefully, score people on real skills and evidence, and
                 surface the strongest matches with transparent reasoning. Recruiters get
@@ -209,7 +209,7 @@ export default function AboutPage() {
               Ready to hire <span className="gradient-text">smarter</span>?
             </h2>
             <p className="mt-6 max-w-xl mx-auto text-lg text-text-secondary">
-              Join the teams using HireMind to find the right people faster, and treat
+              Join the teams using Recruit AI to find the right people faster, and treat
               every candidate the way they deserve.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">

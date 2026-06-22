@@ -146,12 +146,12 @@ export default function HowItWorksPage() {
           <ScrollReveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-bg-secondary px-4 py-1.5 text-xs font-medium text-text-secondary">
               <Brain className="h-3.5 w-3.5 text-accent-blue" />
-              The HireMind hiring pipeline
+              The Recruit AI hiring pipeline
             </span>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h1 className="font-display mt-6 max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
-              How HireMind <span className="gradient-text">works</span>
+              How Recruit AI <span className="gradient-text">works</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -175,7 +175,7 @@ export default function HowItWorksPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <p className="mt-5 max-w-3xl text-text-secondary leading-relaxed">
-              HireMind's agents handle the parts of hiring that don't need a human touch — reading
+              Recruit AI's agents handle the parts of hiring that don't need a human touch — reading
               resumes, running first-round questions, scoring assessments. A resume gets read and ranked
               in under a minute; a first-round screening call happens without anyone on your team picking
               up the phone. But every decision that actually matters — who advances, who gets an offer —

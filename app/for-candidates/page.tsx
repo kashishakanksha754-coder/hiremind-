@@ -61,7 +61,7 @@ export default function ForCandidatesPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <p className="mt-6 max-w-2xl text-lg text-text-secondary md:text-xl">
-              No more black boxes. No more ghosting. HireMind shows you exactly where you
+              No more black boxes. No more ghosting. Recruit AI shows you exactly where you
               stand at every stage, scores you fairly, and lets you interview on your own
               schedule.
             </p>
@@ -96,7 +96,7 @@ export default function ForCandidatesPage() {
                   sinking feeling that your application vanished into a void.
                 </p>
                 <p className="mt-4 text-text-secondary">
-                  HireMind exists to end that. Every application gets read. Every stage
+                  Recruit AI exists to end that. Every application gets read. Every stage
                   gives you a clear status. Every decision comes with reasoning, so you
                   always know where you stand and what happens next.
                 </p>

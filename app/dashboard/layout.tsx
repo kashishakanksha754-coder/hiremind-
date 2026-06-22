@@ -95,7 +95,7 @@ function SidebarContent({
           <Sparkles className="h-5 w-5 text-white" />
         </div>
         <span className="font-display text-lg font-bold text-text-primary">
-          HireMind
+          Recruit AI
         </span>
       </Link>
 
