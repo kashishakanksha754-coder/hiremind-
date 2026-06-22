@@ -41,7 +41,7 @@ function LoginForm() {
       <div className="relative w-full max-w-md">
         <Link href="/" className="mb-8 flex items-center justify-center gap-2">
           <Brain className="h-7 w-7 text-accent-blue" />
-          <span className="font-display text-2xl font-bold gradient-text">Recruit AI</span>
+          <span className="whitespace-nowrap font-display text-2xl font-bold gradient-text">Recruit AI</span>
         </Link>
 
         <div className="rounded-xl border border-border-subtle bg-card p-8 shadow-xl">

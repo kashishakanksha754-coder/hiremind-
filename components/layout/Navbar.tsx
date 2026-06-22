@@ -64,11 +64,11 @@ export function Navbar() {
       )}
     >
       <nav className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-accent-blue to-accent-violet">
+        <Link href="/" className="flex shrink-0 items-center gap-2">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent-blue to-accent-violet">
             <Brain className="h-5 w-5 text-white" />
           </span>
-          <span className="font-display text-lg font-extrabold tracking-tight text-text-primary">
+          <span className="whitespace-nowrap font-display text-base font-extrabold tracking-tight text-text-primary">
             Recruit AI
           </span>
         </Link>

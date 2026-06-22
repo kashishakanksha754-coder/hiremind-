@@ -76,10 +76,10 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
       {/* Sidebar (desktop) */}
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-border-subtle bg-bg-secondary/40 px-4 py-6 lg:flex">
         <Link href="/portal" className="mb-8 flex items-center gap-2 px-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent-blue to-accent-violet font-display text-sm font-bold text-white">
-            H
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent-blue to-accent-violet font-display text-sm font-bold text-white">
+            R
           </div>
-          <span className="font-display text-lg font-semibold gradient-text">
+          <span className="whitespace-nowrap font-display text-base font-semibold gradient-text">
             Recruit AI
           </span>
         </Link>
@@ -105,7 +105,7 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
           />
           <aside className="absolute inset-y-0 left-0 flex w-64 flex-col border-r border-border-subtle bg-bg-secondary px-4 py-6">
             <div className="mb-8 flex items-center justify-between px-2">
-              <span className="font-display text-lg font-semibold gradient-text">
+              <span className="whitespace-nowrap font-display text-base font-semibold gradient-text">
                 Recruit AI
               </span>
               <button onClick={() => setDrawerOpen(false)}>
