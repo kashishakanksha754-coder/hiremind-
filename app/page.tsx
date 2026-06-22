@@ -58,16 +58,27 @@ const testimonials = [
   { quote: "We doubled our hiring throughput without adding a single recruiter. The ROI was obvious in week one.", name: "Sneha Reddy", role: "People Lead, Meesho" },
 ];
 
+const candidateTestimonials = [
+  { quote: "I finally knew where I stood after every single stage. No ghosting, no guessing — just a clear yes or no, fast.", name: "Priya Nair", role: "Hired via Recruit AI" },
+  { quote: "The voice interview felt like a real conversation. I did it at midnight after my shift and got my score the same day.", name: "Rajan Pillai", role: "Hired via Recruit AI" },
+  { quote: "Applied on a Monday, got my offer letter on Friday. I've never moved that fast through a hiring process in my life.", name: "Ananya Krishnan", role: "Hired via Recruit AI" },
+];
+
 export default function HomePage() {
   const [audience, setAudience] = useState<Audience>("recruiter");
   const [active, setActive] = useState(0);
 
-  useEffect(() => {
-    const id = setInterval(() => setActive((i) => (i + 1) % testimonials.length), 4500);
-    return () => clearInterval(id);
-  }, []);
-
   const isRecruiter = audience === "recruiter";
+  const activeTestimonials = isRecruiter ? testimonials : candidateTestimonials;
+
+  useEffect(() => {
+    setActive(0);
+  }, [audience]);
+
+  useEffect(() => {
+    const id = setInterval(() => setActive((i) => (i + 1) % activeTestimonials.length), 4500);
+    return () => clearInterval(id);
+  }, [activeTestimonials.length]);
 
   return (
     <main className="overflow-hidden">
@@ -214,7 +225,7 @@ export default function HomePage() {
       {/* SOCIAL PROOF MARQUEE */}
       <section className="border-y border-border-subtle bg-bg-secondary/40 py-8">
         <p className="mb-6 text-center text-xs font-medium uppercase tracking-widest text-text-secondary">
-          Trusted by teams hiring at
+          {isRecruiter ? "Trusted by teams hiring at" : "Trusted by job seekers at"}
         </p>
         <div className="relative overflow-hidden">
           <div className="flex w-max animate-marquee gap-12 pr-12">
@@ -229,20 +240,36 @@ export default function HomePage() {
 
       {/* STATS */}
       <section className="container py-20">
-        <div className="grid gap-8 text-center md:grid-cols-3">
-          {[
-            { value: 10000, suffix: "+", label: "candidates screened" },
-            { value: 85, suffix: "%", label: "reduction in screening time" },
-            { value: 6, suffix: "-stage", label: "AI pipeline" },
-          ].map((s, i) => (
-            <ScrollReveal key={s.label} delay={i * 0.1}>
-              <p className="font-display text-5xl font-extrabold gradient-text">
-                <CounterAnimation value={s.value} suffix={s.suffix} />
-              </p>
-              <p className="mt-2 text-text-secondary">{s.label}</p>
-            </ScrollReveal>
-          ))}
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={audience + "-stats"}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3 }}
+            className="grid gap-8 text-center md:grid-cols-3"
+          >
+            {(isRecruiter
+              ? [
+                  { value: 10000, suffix: "+", label: "candidates screened" },
+                  { value: 85, suffix: "%", label: "reduction in screening time" },
+                  { value: 6, suffix: "-stage", label: "AI pipeline" },
+                ]
+              : [
+                  { value: 10000, suffix: "+", label: "candidates placed" },
+                  { value: 9, suffix: " days", label: "average time to offer" },
+                  { value: 100, suffix: "%", label: "of applicants get a clear outcome" },
+                ]
+            ).map((s, i) => (
+              <ScrollReveal key={s.label} delay={i * 0.1}>
+                <p className="font-display text-5xl font-extrabold gradient-text">
+                  <CounterAnimation value={s.value} suffix={s.suffix} />
+                </p>
+                <p className="mt-2 text-text-secondary">{s.label}</p>
+              </ScrollReveal>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </section>
 
       {/* PIPELINE */}
@@ -298,45 +325,96 @@ export default function HomePage() {
 
       {/* FEATURES BENTO */}
       <section className="container py-20">
-        <ScrollReveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">
-            Built to make every hire <span className="gradient-text">smarter</span>
-          </h2>
-        </ScrollReveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-3 md:grid-rows-2">
-          <Card className="md:col-span-2 md:row-span-1 p-8 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
-            <Brain className="size-8 text-accent-blue" />
-            <h3 className="mt-4 font-display text-2xl font-semibold">AI that understands context, not keywords</h3>
-            <p className="mt-2 max-w-lg text-text-secondary">
-              Our models read intent, project depth and real impact — surfacing the candidates a keyword filter would miss entirely.
-            </p>
-          </Card>
-          <Card className="md:row-span-2 p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10">
-            <Mic className="size-8 text-accent-violet" />
-            <h3 className="mt-4 font-display text-2xl font-semibold">Lifelike AI voice interviews</h3>
-            <p className="mt-2 text-text-secondary">
-              Natural, adaptive conversations that screen thousands of candidates in parallel — available 24/7, in their own time zone.
-            </p>
-            <div className="mt-6 space-y-2">
-              {["Adaptive follow-up questions", "Tone & clarity analysis", "Instant transcript & scoring"].map((f) => (
-                <div key={f} className="flex items-center gap-2 text-sm text-text-secondary">
-                  <Check className="size-4 text-success" /> {f}
-                </div>
-              ))}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={audience + "-features"}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35 }}
+          >
+            <ScrollReveal className="mx-auto max-w-2xl text-center">
+              <h2 className="font-display text-3xl font-bold md:text-4xl">
+                {isRecruiter
+                  ? <>Built to make every hire <span className="gradient-text">smarter</span></>
+                  : <>Built to make every application <span className="gradient-text">count</span></>}
+              </h2>
+            </ScrollReveal>
+            <div className="mt-12 grid gap-5 md:grid-cols-3 md:grid-rows-2">
+              {isRecruiter ? (
+                <>
+                  <Card className="md:col-span-2 md:row-span-1 p-8 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
+                    <Brain className="size-8 text-accent-blue" />
+                    <h3 className="mt-4 font-display text-2xl font-semibold">AI that understands context, not keywords</h3>
+                    <p className="mt-2 max-w-lg text-text-secondary">
+                      Our models read intent, project depth and real impact — surfacing the candidates a keyword filter would miss entirely.
+                    </p>
+                  </Card>
+                  <Card className="md:row-span-2 p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10">
+                    <Mic className="size-8 text-accent-violet" />
+                    <h3 className="mt-4 font-display text-2xl font-semibold">Lifelike AI voice interviews</h3>
+                    <p className="mt-2 text-text-secondary">
+                      Natural, adaptive conversations that screen thousands of candidates in parallel — available 24/7, in their own time zone.
+                    </p>
+                    <div className="mt-6 space-y-2">
+                      {["Adaptive follow-up questions", "Tone & clarity analysis", "Instant transcript & scoring"].map((f) => (
+                        <div key={f} className="flex items-center gap-2 text-sm text-text-secondary">
+                          <Check className="size-4 text-success" /> {f}
+                        </div>
+                      ))}
+                    </div>
+                  </Card>
+                  {[
+                    { icon: ShieldCheck, title: "Bias-aware scoring", desc: "Structured rubrics keep every decision fair and defensible." },
+                    { icon: BarChart3, title: "Hiring analytics", desc: "Funnel, source and time-to-hire insights in real time." },
+                    { icon: Zap, title: "One-click offers", desc: "Generate and send compliant offer letters instantly." },
+                  ].map((f) => (
+                    <Card key={f.title} className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
+                      <f.icon className="size-6 text-accent-blue" />
+                      <h3 className="mt-3 font-display text-lg font-semibold">{f.title}</h3>
+                      <p className="mt-1 text-sm text-text-secondary">{f.desc}</p>
+                    </Card>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <Card className="md:col-span-2 md:row-span-1 p-8 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
+                    <Brain className="size-8 text-accent-blue" />
+                    <h3 className="mt-4 font-display text-2xl font-semibold">Your experience, actually understood</h3>
+                    <p className="mt-2 max-w-lg text-text-secondary">
+                      Our models read what you've actually done — the depth, the impact, the context — instead of scanning for buzzwords a keyword filter would reward.
+                    </p>
+                  </Card>
+                  <Card className="md:row-span-2 p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10">
+                    <Mic className="size-8 text-accent-violet" />
+                    <h3 className="mt-4 font-display text-2xl font-semibold">A real conversation, not a quiz</h3>
+                    <p className="mt-2 text-text-secondary">
+                      Talk through your experience naturally, on your schedule, in your own time zone. No rigid script, no waiting on a recruiter's calendar.
+                    </p>
+                    <div className="mt-6 space-y-2">
+                      {["Follows up on what you actually say", "Clear, conversational, no trick questions", "Instant transcript so you know exactly what was asked"].map((f) => (
+                        <div key={f} className="flex items-center gap-2 text-sm text-text-secondary">
+                          <Check className="size-4 text-success" /> {f}
+                        </div>
+                      ))}
+                    </div>
+                  </Card>
+                  {[
+                    { icon: ShieldCheck, title: "Your results, explained", desc: "See exactly why you got the score you did — not just a rejection with no reason." },
+                    { icon: BarChart3, title: "Track everything in one place", desc: "Every application, every stage, one dashboard. No more guessing which company you're waiting on." },
+                    { icon: Zap, title: "Offers you can act on fast", desc: "When you're selected, get your offer letter instantly — no weeks of silence after the final interview." },
+                  ].map((f) => (
+                    <Card key={f.title} className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
+                      <f.icon className="size-6 text-accent-blue" />
+                      <h3 className="mt-3 font-display text-lg font-semibold">{f.title}</h3>
+                      <p className="mt-1 text-sm text-text-secondary">{f.desc}</p>
+                    </Card>
+                  ))}
+                </>
+              )}
             </div>
-          </Card>
-          {[
-            { icon: ShieldCheck, title: "Bias-aware scoring", desc: "Structured rubrics keep every decision fair and defensible." },
-            { icon: BarChart3, title: "Hiring analytics", desc: "Funnel, source and time-to-hire insights in real time." },
-            { icon: Zap, title: "One-click offers", desc: "Generate and send compliant offer letters instantly." },
-          ].map((f) => (
-            <Card key={f.title} className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10">
-              <f.icon className="size-6 text-accent-blue" />
-              <h3 className="mt-3 font-display text-lg font-semibold">{f.title}</h3>
-              <p className="mt-1 text-sm text-text-secondary">{f.desc}</p>
-            </Card>
-          ))}
-        </div>
+          </motion.div>
+        </AnimatePresence>
       </section>
 
       {/* DUAL AUDIENCE */}
@@ -378,12 +456,23 @@ export default function HomePage() {
       {/* TESTIMONIALS */}
       <section className="container py-20">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">Loved by hiring teams across India</h2>
+          <AnimatePresence mode="wait">
+            <motion.h2
+              key={audience + "-testimonial-heading"}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.25 }}
+              className="font-display text-3xl font-bold md:text-4xl"
+            >
+              {isRecruiter ? "Loved by hiring teams across India" : "Loved by job seekers across India"}
+            </motion.h2>
+          </AnimatePresence>
         </ScrollReveal>
         <div className="relative mx-auto mt-10 max-w-2xl">
           <AnimatePresence mode="wait">
             <motion.div
-              key={active}
+              key={audience + "-testimonial-" + active}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
@@ -395,14 +484,14 @@ export default function HomePage() {
                     <Star key={i} className="size-4 fill-warning text-warning" />
                   ))}
                 </div>
-                <p className="font-display text-xl font-medium leading-relaxed">&ldquo;{testimonials[active].quote}&rdquo;</p>
-                <p className="mt-5 font-semibold text-text-primary">{testimonials[active].name}</p>
-                <p className="text-sm text-text-secondary">{testimonials[active].role}</p>
+                <p className="font-display text-xl font-medium leading-relaxed">&ldquo;{activeTestimonials[active]?.quote}&rdquo;</p>
+                <p className="mt-5 font-semibold text-text-primary">{activeTestimonials[active]?.name}</p>
+                <p className="text-sm text-text-secondary">{activeTestimonials[active]?.role}</p>
               </Card>
             </motion.div>
           </AnimatePresence>
           <div className="mt-6 flex justify-center gap-2">
-            {testimonials.map((_, i) => (
+            {activeTestimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
@@ -414,8 +503,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PRICING TEASER */}
-      <section className="container py-20">
+      {/* PRICING TEASER — recruiter only */}
+      {isRecruiter && <section className="container py-20">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold md:text-4xl">One plan. <span className="gradient-text">Pay only for the AI time you use.</span></h2>
           <p className="mt-4 text-text-secondary">Job posts, screening, and assessments are included for unlimited roles. Voice and video interviews are billed by the minute — the only real variable cost.</p>
@@ -460,25 +549,51 @@ export default function HomePage() {
             See full pricing & estimator →
           </Link>
         </div>
-      </section>
+      </section>}
 
       {/* FINAL CTA */}
       <section className="container py-24">
         <ScrollReveal>
           <div className="glow-blue relative overflow-hidden rounded-3xl border border-border-subtle bg-gradient-to-br from-accent-blue/10 via-card to-accent-violet/10 p-12 text-center md:p-16">
             <div className="grid-bg absolute inset-0 opacity-30" />
-            <div className="relative">
-              <h2 className="mx-auto max-w-2xl font-display text-3xl font-bold md:text-5xl">
-                Ready to <span className="gradient-text">transform</span> how you hire?
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-text-secondary">
-                Join the teams making faster, fairer hiring decisions with Recruit AI.
-              </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Link href="/signup"><GradientButton size="lg">Start Free Trial <ArrowRight className="size-4" /></GradientButton></Link>
-                <Link href="/contact"><Button variant="outline" size="lg" className="border-border-subtle">Book a Demo</Button></Link>
-              </div>
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={audience + "-cta"}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="relative"
+              >
+                {isRecruiter ? (
+                  <>
+                    <h2 className="mx-auto max-w-2xl font-display text-3xl font-bold md:text-5xl">
+                      Ready to <span className="gradient-text">transform</span> how you hire?
+                    </h2>
+                    <p className="mx-auto mt-4 max-w-xl text-text-secondary">
+                      Join the teams making faster, fairer hiring decisions with Recruit AI.
+                    </p>
+                    <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                      <Link href="/signup"><GradientButton size="lg">Start Free Trial <ArrowRight className="size-4" /></GradientButton></Link>
+                      <Link href="/contact"><Button variant="outline" size="lg" className="border-border-subtle">Book a Demo</Button></Link>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <h2 className="mx-auto max-w-2xl font-display text-3xl font-bold md:text-5xl">
+                      Ready to find a role that actually <span className="gradient-text">wants</span> you back?
+                    </h2>
+                    <p className="mx-auto mt-4 max-w-xl text-text-secondary">
+                      Join candidates getting real feedback, real speed, and real offers with Recruit AI.
+                    </p>
+                    <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                      <Link href="/portal/jobs"><GradientButton size="lg">Find Jobs <ArrowRight className="size-4" /></GradientButton></Link>
+                      <Link href="/how-it-works"><Button variant="outline" size="lg" className="border-border-subtle">See How It Works</Button></Link>
+                    </div>
+                  </>
+                )}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </ScrollReveal>
       </section>
