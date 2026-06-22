@@ -261,12 +261,12 @@ export default function HomePage() {
                   { value: 100, suffix: "%", label: "of applicants get a clear outcome" },
                 ]
             ).map((s, i) => (
-              <ScrollReveal key={s.label} delay={i * 0.1}>
+              <div key={s.label}>
                 <p className="font-display text-5xl font-extrabold gradient-text">
                   <CounterAnimation value={s.value} suffix={s.suffix} />
                 </p>
                 <p className="mt-2 text-text-secondary">{s.label}</p>
-              </ScrollReveal>
+              </div>
             ))}
           </motion.div>
         </AnimatePresence>
@@ -333,13 +333,13 @@ export default function HomePage() {
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35 }}
           >
-            <ScrollReveal className="mx-auto max-w-2xl text-center">
+            <div className="mx-auto max-w-2xl text-center">
               <h2 className="font-display text-3xl font-bold md:text-4xl">
                 {isRecruiter
                   ? <>Built to make every hire <span className="gradient-text">smarter</span></>
                   : <>Built to make every application <span className="gradient-text">count</span></>}
               </h2>
-            </ScrollReveal>
+            </div>
             <div className="mt-12 grid gap-5 md:grid-cols-3 md:grid-rows-2">
               {isRecruiter ? (
                 <>

@@ -19,7 +19,7 @@ export function CounterAnimation({
   className,
 }: CounterAnimationProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const inView = useInView(ref, { once: false, margin: "-60px" });
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
