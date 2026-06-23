@@ -389,19 +389,16 @@ export default function PricingPage() {
 
       {/* Hero */}
       <section className="grid-bg border-b border-border-subtle">
-        <div className="container py-20 text-center md:py-28">
+        <div className="container py-14 text-center md:py-20">
           <ScrollReveal>
             <h1 className="font-display text-4xl font-bold leading-tight md:text-6xl">
-              One plan for the platform.{" "}
-              <span className="gradient-text">Pay only for the AI conversations you actually have.</span>
+              Simple pricing. Pay only for{" "}
+              <span className="gradient-text">what you use.</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-text-secondary">
-              Everything you need to run hiring — job posts, resume screening, assessments — is included
-              in your plan, covering an unlimited number of open roles. The only thing metered is AI voice
-              and video time, billed by the minute, because that's the one cost that actually grows with
-              how much you hire.
+            <p className="mx-auto mt-5 max-w-xl text-lg text-text-secondary">
+              Unlimited jobs and screening, always included. You're billed only for AI voice and video minutes.
             </p>
           </ScrollReveal>
 
