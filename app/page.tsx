@@ -340,19 +340,42 @@ export default function HomePage() {
                   : <>Built to make every application <span className="gradient-text">count</span></>}
               </h2>
             </div>
-            <div className="mt-12 grid gap-5 md:grid-cols-3 md:grid-rows-2">
+            <div className="mt-12 grid gap-5 md:[grid-template-columns:1fr_1fr_1fr] md:[grid-template-rows:1fr_1fr]">
               {isRecruiter ? (
                 <>
-                  <Card className="md:col-span-2 md:row-span-1 p-8 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.45)]">
-                    <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent-blue/15">
-                      <Brain className="size-6 text-accent-blue" />
+                  {/* 2×2 equal cards — cols 1–2, rows 1–2 (auto-placed) */}
+                  <Card className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.45)]">
+                    <div className="mb-3 inline-flex size-10 items-center justify-center rounded-lg bg-accent-blue/15">
+                      <Brain className="size-5 text-accent-blue" />
                     </div>
-                    <h3 className="font-display text-2xl font-semibold">AI that understands context, not keywords</h3>
-                    <p className="mt-2 max-w-lg text-text-secondary">
-                      Our models read intent, project depth and real impact — surfacing the candidates a keyword filter would miss entirely.
+                    <h3 className="font-display text-lg font-semibold">AI that understands context, not keywords</h3>
+                    <p className="mt-2 text-sm text-text-secondary">
+                      Our models read intent, project depth and real impact — surfacing candidates a keyword filter would miss.
                     </p>
                   </Card>
-                  <Card className="md:row-span-2 p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10 [border-top:2px_solid_rgba(139,92,246,0.45)]">
+                  <Card className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.35)]">
+                    <div className="mb-3 inline-flex size-10 items-center justify-center rounded-lg bg-accent-blue/15">
+                      <ShieldCheck className="size-5 text-accent-blue" />
+                    </div>
+                    <h3 className="font-display text-lg font-semibold">Bias-aware scoring</h3>
+                    <p className="mt-2 text-sm text-text-secondary">Structured rubrics keep every decision fair and defensible.</p>
+                  </Card>
+                  <Card className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.35)]">
+                    <div className="mb-3 inline-flex size-10 items-center justify-center rounded-lg bg-accent-blue/15">
+                      <BarChart3 className="size-5 text-accent-blue" />
+                    </div>
+                    <h3 className="font-display text-lg font-semibold">Hiring analytics</h3>
+                    <p className="mt-2 text-sm text-text-secondary">Funnel, source and time-to-hire insights in real time.</p>
+                  </Card>
+                  <Card className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.35)]">
+                    <div className="mb-3 inline-flex size-10 items-center justify-center rounded-lg bg-accent-blue/15">
+                      <Zap className="size-5 text-accent-blue" />
+                    </div>
+                    <h3 className="font-display text-lg font-semibold">One-click offers</h3>
+                    <p className="mt-2 text-sm text-text-secondary">Generate and send compliant offer letters instantly.</p>
+                  </Card>
+                  {/* Tall card — col 3, spans both rows */}
+                  <Card className="p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10 [border-top:2px_solid_rgba(139,92,246,0.45)] md:[grid-column:3] md:[grid-row:1/span_2]">
                     <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent-violet/15">
                       <Mic className="size-6 text-accent-violet" />
                     </div>
@@ -368,32 +391,42 @@ export default function HomePage() {
                       ))}
                     </div>
                   </Card>
-                  {[
-                    { icon: ShieldCheck, title: "Bias-aware scoring", desc: "Structured rubrics keep every decision fair and defensible.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
-                    { icon: BarChart3, title: "Hiring analytics", desc: "Funnel, source and time-to-hire insights in real time.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
-                    { icon: Zap, title: "One-click offers", desc: "Generate and send compliant offer letters instantly.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
-                  ].map((f) => (
-                    <Card key={f.title} className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.35)]">
-                      <div className={cn("mb-3 inline-flex size-10 items-center justify-center rounded-lg", f.glow)}>
-                        <f.icon className={cn("size-5", f.color)} />
-                      </div>
-                      <h3 className="font-display text-lg font-semibold">{f.title}</h3>
-                      <p className="mt-1 text-sm text-text-secondary">{f.desc}</p>
-                    </Card>
-                  ))}
                 </>
               ) : (
                 <>
-                  <Card className="md:col-span-2 md:row-span-1 p-8 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.45)]">
-                    <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent-blue/15">
-                      <Brain className="size-6 text-accent-blue" />
+                  {/* 2×2 equal cards — cols 1–2, rows 1–2 (auto-placed) */}
+                  <Card className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.45)]">
+                    <div className="mb-3 inline-flex size-10 items-center justify-center rounded-lg bg-accent-blue/15">
+                      <Brain className="size-5 text-accent-blue" />
                     </div>
-                    <h3 className="font-display text-2xl font-semibold">Your experience, actually understood</h3>
-                    <p className="mt-2 max-w-lg text-text-secondary">
-                      Our models read what you've actually done — the depth, the impact, the context — instead of scanning for buzzwords a keyword filter would reward.
+                    <h3 className="font-display text-lg font-semibold">Your experience, actually understood</h3>
+                    <p className="mt-2 text-sm text-text-secondary">
+                      Our models read what you've actually done — depth, impact, context — not just the buzzwords a filter would reward.
                     </p>
                   </Card>
-                  <Card className="md:row-span-2 p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10 [border-top:2px_solid_rgba(139,92,246,0.45)]">
+                  <Card className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.35)]">
+                    <div className="mb-3 inline-flex size-10 items-center justify-center rounded-lg bg-accent-blue/15">
+                      <ShieldCheck className="size-5 text-accent-blue" />
+                    </div>
+                    <h3 className="font-display text-lg font-semibold">Your results, explained</h3>
+                    <p className="mt-2 text-sm text-text-secondary">See exactly why you got the score you did — not just a rejection with no reason.</p>
+                  </Card>
+                  <Card className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.35)]">
+                    <div className="mb-3 inline-flex size-10 items-center justify-center rounded-lg bg-accent-blue/15">
+                      <BarChart3 className="size-5 text-accent-blue" />
+                    </div>
+                    <h3 className="font-display text-lg font-semibold">Track everything in one place</h3>
+                    <p className="mt-2 text-sm text-text-secondary">Every application, every stage, one dashboard. No more guessing which company you're waiting on.</p>
+                  </Card>
+                  <Card className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.35)]">
+                    <div className="mb-3 inline-flex size-10 items-center justify-center rounded-lg bg-accent-blue/15">
+                      <Zap className="size-5 text-accent-blue" />
+                    </div>
+                    <h3 className="font-display text-lg font-semibold">Offers you can act on fast</h3>
+                    <p className="mt-2 text-sm text-text-secondary">When you're selected, get your offer letter instantly — no weeks of silence after the final interview.</p>
+                  </Card>
+                  {/* Tall card — col 3, spans both rows */}
+                  <Card className="p-8 transition-all hover:border-accent-violet/50 hover:shadow-lg hover:shadow-violet-500/10 [border-top:2px_solid_rgba(139,92,246,0.45)] md:[grid-column:3] md:[grid-row:1/span_2]">
                     <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent-violet/15">
                       <Mic className="size-6 text-accent-violet" />
                     </div>
@@ -409,19 +442,6 @@ export default function HomePage() {
                       ))}
                     </div>
                   </Card>
-                  {[
-                    { icon: ShieldCheck, title: "Your results, explained", desc: "See exactly why you got the score you did — not just a rejection with no reason.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
-                    { icon: BarChart3, title: "Track everything in one place", desc: "Every application, every stage, one dashboard. No more guessing which company you're waiting on.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
-                    { icon: Zap, title: "Offers you can act on fast", desc: "When you're selected, get your offer letter instantly — no weeks of silence after the final interview.", color: "text-accent-blue", glow: "bg-accent-blue/15" },
-                  ].map((f) => (
-                    <Card key={f.title} className="p-6 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.35)]">
-                      <div className={cn("mb-3 inline-flex size-10 items-center justify-center rounded-lg", f.glow)}>
-                        <f.icon className={cn("size-5", f.color)} />
-                      </div>
-                      <h3 className="font-display text-lg font-semibold">{f.title}</h3>
-                      <p className="mt-1 text-sm text-text-secondary">{f.desc}</p>
-                    </Card>
-                  ))}
                 </>
               )}
             </div>
@@ -431,6 +451,12 @@ export default function HomePage() {
 
       {/* DUAL AUDIENCE */}
       <section className="container py-20">
+        <ScrollReveal className="mb-10 text-center">
+          <h2 className="font-display text-3xl font-bold md:text-4xl">
+            Built for <span className="gradient-text">both sides</span> of hiring
+          </h2>
+          <p className="mt-3 text-text-secondary">Two experiences, one platform.</p>
+        </ScrollReveal>
         <div className="grid gap-6 md:grid-cols-2">
           <ScrollReveal>
             <Card className="group h-full p-8 transition-all hover:border-accent-blue/50 hover:shadow-lg hover:shadow-blue-500/10 [border-top:2px_solid_rgba(59,130,246,0.45)]">
